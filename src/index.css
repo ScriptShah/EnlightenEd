@@ -2,9 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 1. Use a more-intuitive box-sizing model.
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
 */
-
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
 *::before,
 *::after {
   @apply box-border;
@@ -109,7 +120,7 @@ h6 {
   @apply leading-8 border-b-transparent border-b border-solid hover:text-[#0c0cffd1] hover:border-b-2 hover:border-b-[#0c0cffd1] hover:border-solid;
 }
 .header__btn {
-  @apply bg-[#0c0cffd1] w-[115px] h-10 text-white text-base font-semibold rounded-[20px];
+  @apply bg-[#0c0cffd1] w-[115px] h-10 text-white text-base font-semibold rounded-[20px] hover:bg-[#1f1fffd1] hover:w-[116px] hover:h-[41px];
 }
 
 /* breakpoints */
