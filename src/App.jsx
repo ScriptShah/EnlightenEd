@@ -6,6 +6,7 @@ import FeedBack from './components/FeedBack'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import Summary from './components/Summary'
+import Blog from './components/Blog'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Header/>
       <Home/>
       <Summary/>
+      <Blog/>
       <Courses/>
       <Instructors/>
       <FeedBack/>

@@ -106,7 +106,7 @@ h6 {
 }
 
 .main {
-  background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+  background: url(<path-to-image>), rgba(211, 211, 211, 0.658) 50% / cover no-repeat;
 }
 
 .header {
@@ -275,6 +275,29 @@ h6 {
   @apply text-[#0000007a] font-medium xl:text-[1.3rem];
 }
 
+
+.blog {
+  @apply flex w-full pt-[60px];
+  flex-flow: column nowrap;
+}
+.blog__container {
+  @apply flex items-center p-5 xl:w-full xl:flex xl:items-center xl:gap-8 xl:px-[60px];
+  flex-flow: column nowrap;
+}
+.blog__container__context {
+  @apply flex items-center;
+  flex-flow: column nowrap;
+}
+.blog__container__context__title {
+  @apply text-[#000000e7] text-[1.55rem] font-bold xl:text-[2rem];
+}
+.blog__container__context__txt {
+  @apply text-center text-[#000000a1] text-sm font-semibold p-[25px] xl:text-base;
+}
+.blog__container__video__container.two {
+  @apply hidden xl:flex;
+}
+
 /* breakpoints */
 @media (min-width: 640px) {
   .home {
@@ -305,4 +328,14 @@ h6 {
   .home__content__announcement__header__txt__two {
     @apply text-[2.5rem];
   }
+  .blog__container {
+    flex-flow: row nowrap;
+  }
+  .blog__container__video__container {
+    @apply hidden;
+  }
+  .blog__container__video {
+    @apply w-[1800px] shrink-0;
+  }
 }
+
