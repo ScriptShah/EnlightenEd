@@ -1,9 +1,13 @@
 import React from 'react'
+import homeImageLeft from '../assets/homeImageLeft.png'
+import homeImageRight from '../assets/homeImageRight.png'
 
 const Home = () => {
   return (
     <section className='home'>
-      <div className="home__image__container__left"></div>
+      <div className="home__image__container__left">
+        <img src={homeImageLeft} alt="home image left"  className='home__image__left'/>
+      </div>
       <div className="home__content">
         <div className="home__content__announcement">
           <div className="home__content__announcement__header">
@@ -30,10 +34,10 @@ const Home = () => {
           </div>
           <div className="home__content__announcement__footer">
             <p className="home__content__announcement__footer__txt">
-            Your Gateway to Interactive Learning Adventures.
-            Discover a  <br /> world of knowledge and growth through our engaging courses <br /> and resources. 
-            Join a vibrant community of learners, unlock your <br /> full potential,
-             and embark on an enlightening journey <br />towards success.
+              Your Gateway to Interactive Learning Adventures.
+              Discover a world of knowledge and growth through our engaging courses  and resources. 
+              Join a vibrant community of learners, unlock your  full potential,
+              and embark on an enlightening journey towards success.
             </p>
           </div>
         </div>
@@ -42,7 +46,13 @@ const Home = () => {
           <button className="home__content__button__right">Try for free</button>
         </div>
       </div>
-      <div className="home__image__container__right"></div>
+      <div className="home__image__container__right">
+        <img src={homeImageRight} alt="home image right"  className='home__image__right'/>
+      </div>
+      <div className="home__image__small">
+      <img src={homeImageLeft} alt="home image left"  className='home__image__left__small'/>
+      <img src={homeImageRight} alt="home image right"  className='home__image__right__small'/>
+      </div>
     </section>
   )
 }
