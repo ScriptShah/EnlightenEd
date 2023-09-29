@@ -3,7 +3,7 @@ import Instructor__Card from './Instructor__Card'
 
 const Instructors = () => {
   return (
-    <div><Instructor__Card/></div>
+    <div id='instructors'><Instructor__Card/></div>
   )
 }
 

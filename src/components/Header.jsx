@@ -20,13 +20,13 @@ const Header = () => {
             <span className='header__logo__txt'>EnlightenEd</span>
           </div>
           <div className="header__menu">
-               <a href="#" className="header__menu__item">Home</a>
-               <a href="#" className="header__menu__item">Courses</a>
-               <a href="#" className="header__menu__item">Instructors</a>
-               <a href="#" className="header__menu__item">FeedBack</a>
-               <a href="#" className="header__menu__item">Blog</a>
-               <a href="#" className="header__menu__item">Contacts</a>
-               <a href="#" className="header__menu__item">About Us</a>
+               <a href="#home" className="header__menu__item">Home</a>
+               <a href="#courses" className="header__menu__item">Courses</a>
+               <a href="#instructors" className="header__menu__item">Instructors</a>
+               <a href="#feedback" className="header__menu__item">FeedBack</a>
+               <a href="#blog" className="header__menu__item">Blog</a>
+               <a href="#contacts" className="header__menu__item">Contacts</a>
+               <a href="#footer" className="header__menu__item">About Us</a>
           </div>
           <button className="header__btn">Get Start</button>
     </nav>

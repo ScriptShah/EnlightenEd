@@ -3,7 +3,7 @@ import FeedBack__Card from './FeedBack__Card'
 
 const FeedBack = () => {
   return (
-    <div><FeedBack__Card/></div>
+    <div id='feedback'><FeedBack__Card/></div>
   )
 }
 

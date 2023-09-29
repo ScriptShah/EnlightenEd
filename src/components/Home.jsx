@@ -4,7 +4,7 @@ import homeImageRight from '../assets/homeImageRight.png'
 
 const Home = () => {
   return (
-    <section className='home'>
+    <section className='home' id='home'>
       <div className="home__image__container__left">
         <img src={homeImageLeft} alt="home image left"  className='home__image__left'/>
       </div>
