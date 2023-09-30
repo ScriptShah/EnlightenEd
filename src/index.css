@@ -106,7 +106,7 @@ h6 {
 }
 
 .main {
-  background: url(<path-to-image>), rgba(211, 211, 211, 0.658) 50% / cover no-repeat;
+  
 }
 
 .header {
@@ -139,6 +139,7 @@ h6 {
 .home {
   @apply flex gap-8 items-center px-[50px] py-[25px] sm:gap-12 md:gap-8;
   flex-flow: column nowrap;
+  background: url("./assets//Rectangle.svg") 50% / cover no-repeat;
 }
 
 
@@ -280,7 +281,7 @@ h6 {
 
 
 .blog {
-  @apply flex w-full pt-[60px];
+  @apply flex w-full pt-[60px] ;
   flex-flow: column nowrap;
 }
 .blog__container {
@@ -302,126 +303,114 @@ h6 {
 }
 
 
-
-.courses{
-
+.courses {
+  @apply flex items-center w-full pb-0 p-5;
+  flex-flow: column nowrap;
+  background: #edf1f5;
 }
-
-.course__title__content{
-
+.course__title__content {
+  @apply flex items-center text-center gap-6 px-10 py-[50px];
+  flex-flow: column nowrap;
 }
-
-.course__title__container{
-
+.course__title__container {
+  @apply flex items-center gap-[1.8rem];
+  flex-flow: row nowrap;
 }
-
 .course__title__container > svg {
-
+  @apply w-[55px] xl:w-[110px];
 }
-
-.course__title{
-
+.course__title {
+  @apply text-[#124FA2] text-2xl font-bold xl:text-[#124FA2] xl:text-[2.2rem] xl:font-bold;
 }
-
-.course__title__txt__container{
-
+.course__title__txt {
+  @apply text-[rgba(0,0,0,0.411)] text-sm font-semibold xl:text-[rgba(0,0,0,0.411)] xl:text-base xl:font-semibold;
 }
-
-.course__title__txt{
-
+.course__cards__container {
+  @apply flex w-full gap-8 overflow-x-scroll overflow-y-hidden scroll-smooth pl-8 pb-[30px] xl:justify-center xl:gap-6;
+  flex-flow: row nowrap;
 }
-
-.course__cards__container{
-
+.course__card {
+  @apply flex items-center w-[380px] shrink-0 bg-white gap-3 px-2.5 py-5 rounded-[10px] xl:w-[412px];
+  flex-flow: column nowrap;
 }
-
-
-
-.course__card{
-
+.course__card__image {
+  @apply w-[340px];
 }
-.course__card__image__container{
-
+.course__card__instructor {
+  @apply flex items-center justify-between w-full gap-4 p-3;
+  flex-flow: row nowrap;
 }
-
-.course__card__image{
-
+.course__card__instructor__image {
+  @apply w-20;
 }
-
-
-
-
-.course__card__instructor{
-
+.course__card__instructor__info {
+  @apply flex items-start w-full;
+  flex-flow: column nowrap;
 }
-
-.course__card__instructor__image__container{
-
+.course__card__instructor__name {
+  @apply text-[#000000a1] font-bold text-[1.1rem] xl:text-[1.3rem];
 }
-
-.course__card__instructor__image{
-
+.course__card__instructor__position {
+  @apply text-[#000000ad] font-semibold text-sm xl:font-medium xl:text-[#00000070] xl:text-base;
 }
-
-
-.course__card__instructor__info{
-
+.course__card__instructor__heart__sign {
+  @apply flex justify-end w-[55px];
 }
-
-.course__card__instructor__name{
-
+.course__card__instructor__heart__sign > svg:hover {
+  @apply cursor-pointer fill-[red] border-transparent;
 }
-
-.course__card__instructor__position{
-
+.course__card__course__info {
+  @apply text-[#000000de] font-bold text-base leading-[1.8rem] px-3 py-2.5 xl:text-[#000000cb] xl:text-[1.2rem];
 }
-
-.course__card__instructor__heart__sign{
-
+.course__card__course__rating-courseDuration {
+  @apply flex justify-between w-full p-2.5;
+  flex-flow: row nowrap;
 }
-
-.course__card__course__info{
-
+.course__card__course__rating {
+  @apply flex items-center gap-4;
+  flex-flow: row nowrap;
 }
-
-.course__card__course__info__txt{
-
+.course__card__course__rating__stars__container {
+  @apply flex;
+  flex-flow: row nowrap;
 }
-
-.course__card__course__rating-courseDuration{
-
+.course__card__course__rating__stars__container > svg {
+  @apply w-[21px];
 }
-
-.course__card__course__rating{
-
+.course__card__course__rating__score {
+  @apply flex text-[#00000083] font-medium;
+  flex-flow: row nowrap;
 }
-
-.course__card__course__rating__stars__container{
-
+.course__card__course__duration {
+  @apply flex items-center gap-[5px] text-[#00000091] font-medium text-[15px];
+  flex-flow: row nowrap;
 }
-
-.course__card__course__rating__star{
-
+.course__card__line {
+  @apply w-[calc(100%_-_30px)] h-px bg-[#00000038];
 }
-
-.course__card__course__rating__score{
-
+.course__card__sell {
+  @apply flex w-full justify-between px-5 py-2.5;
+  flex-flow: row nowrap;
 }
-
-.course__card__course__duration{
-
+.course__card__sell__price {
+  @apply text-2xl not-italic font-bold leading-[normal] text-[#124FA2];
 }
-
-.course__card__sell{
-
+.course__card__sell__buy__btn {
+  @apply flex h-[47px] justify-center items-center gap-1.5 shadow-[0px_6px_14px_2px_rgba(0,102,204,0.25)] text-white not-italic font-semibold leading-[normal] px-[34px] py-3.5 rounded-[25px];
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+    linear-gradient(98deg, #06c 11.06%, #124fa2 87.56%);
 }
-
-.course__card__sell__price{
-
-}
-
-.course__card__sell__buy__btn{
-  
+.course__card__sell__buy__btn:hover {
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+    linear-gradient(98deg, rgb(20, 134, 248) 11.06%, #227eff 87.56%);
 }
 
 /* breakpoints */
@@ -461,8 +450,9 @@ h6 {
     @apply hidden;
   }
   .blog__container__video {
-    @apply w-[1800px] shrink-0 ;
-
+    @apply w-[1800px] shrink-0;
+  }
+  .course__cards__container {
+    flex-flow: row wrap;
   }
 }
-

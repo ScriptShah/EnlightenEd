@@ -43,7 +43,7 @@ const Course__Card = (
 
         <div className="course__card__course__rating">
           <div className="course__card__course__rating__stars__container">
-            <span className="course__card__course__rating__star">{course__rating__stars}</span>
+            {course__rating__stars}
           </div>
 
           <span className="course__card__course__rating__score">{course__rating__score}</span>
@@ -56,6 +56,7 @@ const Course__Card = (
           {course__duration}</div>
       </div>
 
+      <span className="course__card__line"></span>
 
       <div className="course__card__sell">
         <span className="course__card__sell__price">{course__price}</span>
