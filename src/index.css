@@ -172,23 +172,26 @@ h6 {
 .home__content__announcement {
   @apply flex items-center;
   flex-flow: column nowrap;
+ 
 }
 
 
 .home__content__announcement__header {
   @apply flex items-center;
   flex-flow: column nowrap;
+  gap: 1rem;
 }
 
 
 .home__content__announcement__header__title {
   @apply flex items-center gap-4 text-[13.2px] font-medium text-[#929292] md:text-[1.3rem];
   flex-flow: row nowrap;
+  
 }
 
 
 .home__content__announcement__header__txt {
-  @apply flex items-center gap-[5px] text-[rgba(0,0,0,0.798)] xl:w-[700px];
+  @apply flex items-center gap-[10px] text-[rgba(0,0,0,0.798)] xl:w-[700px];
   flex-flow: column nowrap;
 }
 
@@ -335,7 +338,8 @@ h6 {
     @apply hidden;
   }
   .blog__container__video {
-    @apply w-[1800px] shrink-0;
+    @apply w-[1800px] shrink-0 ;
+
   }
 }
 
