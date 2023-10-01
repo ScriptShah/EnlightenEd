@@ -1,9 +1,9 @@
 import React from 'react'
 import Instructor__Card from './Instructor__Card'
 import instructor__card1 from '../assets/instructor__card1.png' 
-import instructor__card2 from '../assets/instructor__card2.png' 
-import instructor__card3 from '../assets/instructor__card3.png' 
-import instructor__card4 from '../assets/instructor__card4.png' 
+import instructor__card2 from '../assets/Instructor__card2.png' 
+import instructor__card3 from '../assets/Instructor__card3.png' 
+import instructor__card4 from '../assets/Instructor__card4.png' 
 
 const Instructors = () => {
   return (
