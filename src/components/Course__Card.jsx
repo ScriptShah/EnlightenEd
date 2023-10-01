@@ -50,8 +50,8 @@ const Course__Card = (
         </div>
         <div className="course__card__course__duration">
           <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
-            <path d="M8.33333 5.33333V8.66667M14.1667 8.83333C14.1667 12.0533 11.5533 14.6667 8.33333 14.6667C5.11333 14.6667 2.5 12.0533 2.5 8.83333C2.5 5.61333 5.11333 3 8.33333 3C11.5533 3 14.1667 5.61333 14.1667 8.83333Z" stroke="#808080" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M6.33325 1.33337H10.3333" stroke="#808080" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8.33333 5.33333V8.66667M14.1667 8.83333C14.1667 12.0533 11.5533 14.6667 8.33333 14.6667C5.11333 14.6667 2.5 12.0533 2.5 8.83333C2.5 5.61333 5.11333 3 8.33333 3C11.5533 3 14.1667 5.61333 14.1667 8.83333Z" stroke="#808080" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M6.33325 1.33337H10.3333" stroke="#808080" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
           {course__duration}</div>
       </div>

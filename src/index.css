@@ -1,25 +1,9 @@
-/*
-  Based on TailwindCSS recommendations,
-  consider using classes instead of the `@apply` directive
-  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
-*/
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/*
-  Based on TailwindCSS recommendations,
-  consider using classes instead of the `@apply` directive
-  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
-*/
-/*
-  Based on TailwindCSS recommendations,
-  consider using classes instead of the `@apply` directive
-  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
-*/
-/*
-  1. Use a more-intuitive box-sizing model.
-*/
+
 *,
 *::before,
 *::after {
@@ -450,6 +434,79 @@ h6 {
 .instructor__card__coursers__data {
   @apply text-[15px] font-medium text-[#6464647d];
 }
+
+
+
+
+.feedback{
+
+}
+
+.feedbacks__title__content{
+
+}
+
+.feedbacks__title__container {
+  @apply w-full text-center pt-[60px] pb-5 px-[60px];
+}
+.feedbacks__title__container > svg {
+  @apply hidden;
+}
+.feedbacks__title {
+  @apply text-2xl font-bold text-[#06c];
+}
+.feedbacks__title__txt__container {
+  @apply w-full text-center pb-5 px-[60px];
+}
+.feedbacks__title__txt {
+  @apply text-sm font-semibold text-[rgba(52,52,52,0.424)];
+}
+
+.feedback__card__container{
+
+}
+
+.feedback__Card{
+
+}
+
+.feedback__Card__container{
+
+}
+
+.feedback__Card__feedback{
+
+}
+
+.feedback__Card__feedback__txt{
+
+}
+
+.feedback__Card__author__container{
+
+}
+
+.feedback__Card__author__image__container{
+
+}
+
+.feedback__Card__author__image{
+
+}
+
+.feedback__Card__author{
+
+}
+
+.feedback__Card__author__name{
+
+}
+
+.feedback__Card__author__position{
+
+}
+
+
 
 /* breakpoints */
 @media (min-width: 640px) {
