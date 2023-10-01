@@ -314,6 +314,18 @@ const Courses = () => {
             course__price = {"$224.00"}
           />    
         </div>
+
+        <div className="course__showButton__container">
+            <button className="course__showButton">
+              Show All
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g id="arrow-right">
+                <path id="Vector" d="M5 12H19" stroke="#0066CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path id="Vector_2" d="M12 5L19 12L12 19" stroke="#0066CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+              </svg>  
+            </button>
+        </div>
     </section>
   )
 }

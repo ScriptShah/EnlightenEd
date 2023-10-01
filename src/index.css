@@ -1,3 +1,8 @@
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -104,11 +109,10 @@ h6 {
   font-family: circular-bold;
   src: url(../fonts/CircularStd-Bold.otf);
 }
-
 .main {
-  
+  @apply flex gap-8;
+  flex-flow: column nowrap;
 }
-
 .header {
   @apply inline-flex w-full h-[50px] justify-between items-center text-base px-[30px] py-[50px] lg:px-20 lg:py-[50px];
 }
@@ -119,117 +123,87 @@ h6 {
   @apply text-[#0c0cffd1] font-bold md:hidden lg:block;
 }
 .header__menu {
-  @apply hidden gap-4 h-10 text-[rgb(130,129,129)] font-medium md:inline-flex md:gap-4 ;
+  @apply hidden gap-4 h-10 text-[rgb(130,129,129)] font-medium md:inline-flex md:gap-4;
 }
 .header__menu__item {
   @apply leading-8 border-b-transparent border-b border-solid hover:text-[#0c0cffd1] hover:border-b-2 hover:border-b-[#0c0cffd1] hover:border-solid;
 }
 .header__btn {
-  @apply bg-[#0c0cffd1] w-32 h-12 text-white text-base font-semibold rounded-[20px] ;
-  background: var(--Gradint, linear-gradient(98deg, #06C 11.06%, #124FA2 87.56%));
+  @apply bg-[#0c0cffd1] w-32 h-12 text-white text-base font-semibold rounded-[20px];
+  background: var(
+    --Gradint,
+    linear-gradient(98deg, #06c 11.06%, #124fa2 87.56%)
+  );
 }
-
-.header__btn:hover{
-  background: var(--Gradint, linear-gradient(98deg, rgb(2, 128, 255) 11.06%, #3585f5 87.56%));
-
-  box-shadow: 0px 6px 14px 2px rgba(9, 91, 184, 0.18);
+.header__btn:hover {
+  @apply shadow-[0px_6px_14px_2px_rgba(9,91,184,0.18)];
+  background: var(
+    --Gradint,
+    linear-gradient(98deg, rgb(2, 128, 255) 11.06%, #3585f5 87.56%)
+  );
 }
-
-
 .home {
   @apply flex gap-8 items-center px-[50px] py-[25px] sm:gap-12 md:gap-8;
   flex-flow: column nowrap;
   background: url("./assets//Rectangle.svg") 50% / cover no-repeat;
 }
-
-
 .home__image__container__left {
+  @apply duration-[0.5s] hover:translate-y-[-35px] hover:duration-[infinite];
   @apply h-[700px] w-[350px] shrink-0 hidden;
 }
-
-
 .home__image__container__right {
+  @apply duration-[0.5s] hover:translate-y-[35px] hover:duration-[infinite];
   @apply h-[700px] w-[350px] shrink-0 hidden;
 }
-
-
 .home__image__small {
   @apply flex pt-5 sm:flex xl:hidden;
 }
-
-
 .home__image__left__small,
 .home__image__right__small {
   @apply w-[200px] sm:w-[250px] md:w-[330px];
 }
-
-
 .home__content {
   @apply flex items-center xl:mt-[-15rem];
   flex-flow: column nowrap;
 }
-
-
 .home__content__announcement {
   @apply flex items-center;
   flex-flow: column nowrap;
- 
 }
-
-
 .home__content__announcement__header {
+  @apply gap-4;
   @apply flex items-center;
   flex-flow: column nowrap;
-  gap: 1rem;
 }
-
-
 .home__content__announcement__header__title {
   @apply flex items-center gap-4 text-[13.2px] font-medium text-[#929292] md:text-[1.3rem];
   flex-flow: row nowrap;
-  
 }
-
-
 .home__content__announcement__header__txt {
   @apply flex items-center gap-[10px] text-[rgba(0,0,0,0.798)] xl:w-[700px];
   flex-flow: column nowrap;
 }
-
-
 .home__content__announcement__header__txt__one {
   @apply text-2xl font-bold;
 }
-
-
 .home__content__announcement__header__txt__two {
   @apply text-2xl font-bold;
 }
-
-
 .home__content__announcement__header__txt > svg {
   @apply self-end hidden;
 }
-
-
 .home__content__announcement__footer {
   @apply w-full flex justify-center text-sm;
   flex-flow: column nowrap;
 }
-
-
 .home__content__announcement__footer__txt {
   @apply w-full text-center font-semibold text-[#929292] p-5 md:w-full md:h-[190px] md:text-base md:font-semibold;
   word-wrap: break-word;
 }
-
-
 .home__content__button__container {
   @apply flex gap-6;
   flex-flow: row nowrap;
 }
-
-
 .home__content__button__left {
   @apply flex h-[50px] justify-center items-center shadow-[0px_6px_14px_2px_rgba(9,91,184,0.18)] text-white text-[17px] shrink-0 px-[50px] py-[13px] rounded-[25px];
   background: var(
@@ -237,21 +211,15 @@ h6 {
     linear-gradient(98deg, #06c 11.06%, #124fa2 87.56%)
   );
 }
-
-
 .home__content__button__left:hover {
   background: var(
     --Gradint,
     linear-gradient(98deg, rgb(2, 128, 255) 11.06%, #3585f5 87.56%)
   );
 }
-
-
 .home__content__button__right {
   @apply flex h-[52px] justify-center items-center text-[rgb(170,170,170)] font-semibold text-[17px] shrink-0 px-[50px] py-3.5 rounded-[25px] border-2 border-solid border-[#BDBDBD] hover:text-black hover:border-2 hover:border-solid hover:border-[rgba(0,0,0,0.798)];
 }
-
-
 .summary {
   @apply flex justify-center gap-4 xl:gap-8;
   flex-flow: row wrap;
@@ -278,14 +246,12 @@ h6 {
 .summary__card__content__txt__name {
   @apply text-[#0000007a] font-medium xl:text-[1.3rem];
 }
-
-
 .blog {
-  @apply flex w-full pt-[60px] ;
+  @apply flex w-full;
   flex-flow: column nowrap;
 }
 .blog__container {
-  @apply flex items-center p-5 xl:w-full xl:flex xl:items-center xl:gap-8 xl:px-[60px];
+  @apply flex items-center p-5 xl:w-full xl:flex xl:items-center xl:gap-14 xl:px-[60px];
   flex-flow: column nowrap;
 }
 .blog__container__context {
@@ -301,8 +267,6 @@ h6 {
 .blog__container__video__container.two {
   @apply hidden xl:flex;
 }
-
-
 .courses {
   @apply flex items-center w-full pb-0 p-5;
   flex-flow: column nowrap;
@@ -320,6 +284,7 @@ h6 {
   @apply w-[55px] xl:w-[110px];
 }
 .course__title {
+  @apply shrink-0;
   @apply text-[#124FA2] text-2xl font-bold xl:text-[#124FA2] xl:text-[2.2rem] xl:font-bold;
 }
 .course__title__txt {
@@ -332,6 +297,9 @@ h6 {
 .course__card {
   @apply flex items-center w-[380px] shrink-0 bg-white gap-3 px-2.5 py-5 rounded-[10px] xl:w-[412px];
   flex-flow: column nowrap;
+}
+.course__card:hover {
+  @apply translate-y-[15px] duration-[0.5s] cursor-pointer;
 }
 .course__card__image {
   @apply w-[340px];
@@ -412,6 +380,76 @@ h6 {
     ),
     linear-gradient(98deg, rgb(20, 134, 248) 11.06%, #227eff 87.56%);
 }
+.course__showButton__container {
+  @apply flex justify-center items-center w-full h-[180px];
+}
+.course__showButton {
+  @apply inline-flex gap-[5px] text-[#06C] font-bold px-[30px] py-[15px] rounded-[50px] border-2 border-solid border-[#06C];
+}
+.course__showButton:hover > svg {
+  @apply translate-x-[5px] duration-[0.5s];
+}
+.instructors {
+  @apply flex bg-[#3577D1] gap-16 pl-5 px-0 py-20;
+  flex-flow: column nowrap;
+}
+.instructors__title__content {
+  @apply flex items-center text-center gap-4;
+  flex-flow: column nowrap;
+}
+.instructors__title__container {
+  @apply flex items-center gap-[1.2rem];
+}
+.instructors__title__container > svg {
+  @apply w-[60px] xl:w-[105px];
+}
+.instructors__title {
+  @apply text-[#FF9900] text-[1.4rem] font-bold xl:text-[2rem];
+}
+.instructors__title__txt__container {
+  @apply text-sm text-[#ffffffcb] xl:text-base;
+}
+.instructors__cards__container {
+  @apply w-full flex overflow-x-scroll gap-4 pb-[60px] xl:justify-center xl:overflow-hidden;
+}
+.instructor__card {
+  @apply flex items-center w-[335px] h-[465px] bg-white shrink-0 gap-4 rounded-[20px] hover:translate-y-[15px] hover:duration-[0.5s] hover:cursor-pointer;
+  flex-flow: column nowrap;
+}
+.instructor__Card__image__container {
+  @apply w-full;
+}
+.instructor__Card__image {
+  @apply w-full rounded-t-[20px];
+}
+.instructor__Card__instructor__info {
+  @apply flex items-center;
+  flex-flow: column nowrap;
+}
+.instructor__info__name {
+  @apply text-2xl font-bold text-[#646464];
+}
+.instructor__info__position {
+  @apply text-[17px] font-medium text-[#6464647d];
+}
+.instructor__card__line {
+  @apply w-[calc(100%_-_37%)] h-0.5 bg-[#90909077];
+}
+.instructor__card__followers-coursers {
+  @apply flex justify-between w-full px-5 py-2.5;
+}
+.instructor__card__followers {
+  @apply flex gap-[5px];
+}
+.instructor__card__followers__data {
+  @apply text-[15px] font-medium text-[#6464647d];
+}
+.instructor__card__coursers {
+  @apply flex gap-[5px];
+}
+.instructor__card__coursers__data {
+  @apply text-[15px] font-medium text-[#6464647d];
+}
 
 /* breakpoints */
 @media (min-width: 640px) {
@@ -453,6 +491,7 @@ h6 {
     @apply w-[1800px] shrink-0;
   }
   .course__cards__container {
+    @apply overflow-x-hidden;
     flex-flow: row wrap;
   }
 }
