@@ -437,15 +437,11 @@ h6 {
 
 
 
-
-.feedback{
-
+.feedback {
+  @apply flex xl:px-0 xl:py-10;
+  flex-flow: column nowrap;
+  background: var(--background-color, #f7f7f7);
 }
-
-.feedbacks__title__content{
-
-}
-
 .feedbacks__title__container {
   @apply w-full text-center pt-[60px] pb-5 px-[60px];
 }
@@ -461,52 +457,33 @@ h6 {
 .feedbacks__title__txt {
   @apply text-sm font-semibold text-[rgba(52,52,52,0.424)];
 }
-
-.feedback__card__container{
-
+.feedback__card__container {
+  @apply flex overflow-x-scroll gap-4 px-5 py-[50px] xl:flex xl:justify-center xl:items-center xl:overflow-hidden xl:gap-4 xl:px-5 xl:py-[50px];
+  flex-flow: row nowrap;
 }
-
-.feedback__Card{
-
+.feedback__Card {
+  @apply flex w-[340px] shrink-0 border text-justify text-sm px-[30px] py-[35px] rounded-[20px] border-solid border-[#00000028] xl:w-[480px];
+  flex-flow: column nowrap;
 }
-
-.feedback__Card__container{
-
+.feedback__Card__content {
+  @apply flex gap-10 xl:flex xl:gap-10;
+  flex-flow: column nowrap;
 }
-
-.feedback__Card__feedback{
-
+.feedback__Card__feedback__txt {
+  @apply text-[#0000007c] font-semibold leading-6 xl:text-base;
 }
-
-.feedback__Card__feedback__txt{
-
+.feedback__Card__author__container {
+  @apply inline-flex gap-6;
 }
-
-.feedback__Card__author__container{
-
+.feedback__Card__author {
+  @apply leading-6;
 }
-
-.feedback__Card__author__image__container{
-
+.feedback__Card__author__name {
+  @apply font-bold text-lg text-[#00000096] xl:text-[19px];
 }
-
-.feedback__Card__author__image{
-
+.feedback__Card__author__position {
+  @apply font-normal text-sm text-[#0000008e] xl:text-[15px];
 }
-
-.feedback__Card__author{
-
-}
-
-.feedback__Card__author__name{
-
-}
-
-.feedback__Card__author__position{
-
-}
-
-
 
 /* breakpoints */
 @media (min-width: 640px) {
@@ -550,5 +527,29 @@ h6 {
   .course__cards__container {
     @apply overflow-x-hidden;
     flex-flow: row wrap;
+  }
+  ::-webkit-scrollbar {
+    @apply hidden;
+  }
+  .feedbacks__title__container {
+    @apply flex justify-center items-center gap-8;
+  }
+  .feedbacks__title__container > svg {
+    @apply block;
+  }
+  .feedbacks__title {
+    @apply text-4xl font-bold text-[#06c];
+  }
+  .feedbacks__title__txt__container {
+    @apply w-full text-center pb-5 px-[60px];
+  }
+  .feedbacks__title__txt {
+    @apply text-lg font-semibold text-[rgba(52,52,52,0.424)];
+  }
+  .feedback__card__container {
+    flex-flow: row nowrap;
+  }
+  .feedback__Card__content {
+    flex-flow: column nowrap;
   }
 }

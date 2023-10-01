@@ -9,7 +9,7 @@ const FeedBack__Card = ({
 }) => {
   return (
     <div className="feedback__Card">
-        <div className="feedback__Card__container">
+        <div className="feedback__Card__content">
           <div className="feedback__Card__feedback">
             <p className="feedback__Card__feedback__txt">
                 {feedback__txt}
