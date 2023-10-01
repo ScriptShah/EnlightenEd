@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import Summary from './components/Summary'
 import Blog from './components/Blog'
+import CopyRight from './components/CopyRight'
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
       <Instructors/>
       <FeedBack/>
       <Footer/>
+      <CopyRight/>
     </div>
   )
 }
