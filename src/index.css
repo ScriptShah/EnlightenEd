@@ -131,7 +131,9 @@ h6 {
 .home {
   @apply flex gap-8 items-center px-[50px] py-[25px] sm:gap-12 md:gap-8;
   flex-flow: column nowrap;
+  align-items: center;
   background: url("./assets//Rectangle.svg") 50% / cover no-repeat;
+  width: 100%;
 }
 .home__image__container__left {
   @apply duration-[0.5s] hover:translate-y-[-35px] hover:duration-[infinite];
@@ -154,6 +156,7 @@ h6 {
 }
 .home__content__announcement {
   @apply flex items-center;
+  text-align: center;
   flex-flow: column nowrap;
 }
 .home__content__announcement__header {
@@ -188,7 +191,10 @@ h6 {
 }
 .home__content__button__container {
   @apply flex gap-6;
-  flex-flow: row nowrap;
+  padding-top: 10px;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center
 }
 .home__content__button__left {
   @apply flex h-[50px] justify-center items-center shadow-[0px_6px_14px_2px_rgba(9,91,184,0.18)] text-white text-[17px] shrink-0 px-[50px] py-[13px] rounded-[25px];
@@ -196,6 +202,7 @@ h6 {
     --Gradint,
     linear-gradient(98deg, #06c 11.06%, #124fa2 87.56%)
   );
+  flex-shrink: 0;
 }
 .home__content__button__left:hover {
   background: var(
@@ -205,6 +212,7 @@ h6 {
 }
 .home__content__button__right {
   @apply flex h-[52px] justify-center items-center text-[rgb(170,170,170)] font-semibold text-[17px] shrink-0 px-[50px] py-3.5 rounded-[25px] border-2 border-solid border-[#BDBDBD] hover:text-black hover:border-2 hover:border-solid hover:border-[rgba(0,0,0,0.798)];
+  flex-shrink: 0;
 }
 .summary {
   @apply flex justify-center gap-4 xl:gap-8;
@@ -526,11 +534,49 @@ h6 {
 }
 
 /* breakpoints */
-@media (min-width: 640px) {
-  .home {
-    flex-flow: column nowrap;
+
+@media (max-width:500px) {
+  .home__image__small {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    flex-shrink: 1;
+  }
+
+
+  .home__image__left__small,.home__image__right__small {
+    display: block;
+    width: 100%;
+    flex-shrink: 1;
+  }
+
+  .home__content__announcement__header__txt {
+    gap: 0px;
+  }
+
+  .home__content__announcement__header__txt__one,
+  .home__content__announcement__header__txt__two {
+    font-size: 1.2rem;
+  }
+
+  .course__cards__container {
+    align-items: center;
+    padding: 0;
+    
+  }
+
+
+  .course__card {
+    width: calc(100% - 5%);
+  }
+
+ 
+  .instructor__card {
+    width: calc(100% - 5%);
   }
 }
+
+
 @media (min-width: 768px) {
   .burger {
     @apply hidden;
