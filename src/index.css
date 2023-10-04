@@ -657,6 +657,17 @@ h6 {
   .instructor__card {
     @apply w-[calc(100%_-_5%)];
   }
+
+  .courses__add__form__title,
+.instructors__add__form__title {
+  @apply text-[1.3rem] text-white;
+}
+
+.courses__add__form,
+.instructors__add__form {
+  @apply flex gap-4 w-[calc(100%_-_10%)] h-[calc(100%_-_30%)] bg-[rgba(255,255,255,0.288)] p-[35px] rounded-[20px];
+  flex-flow: column;
+}
 }
 @media (min-width: 768px) {
   .burger {
