@@ -1,34 +1,46 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import json
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
-todos = [
-    {"id": 1, "title": "Buy groceries"},
-    {"id": 2, "title": "Go to the gym"},
-    {"id": 3, "title": "Do laundry"},
-]
+courses = []
 
-@app.route("/todos", methods=["GET"])
-def get_todos():
-    return jsonify(todos)
+def load_data():
+    global courses
+    try:
+        with open("courses.json", "r") as file:
+            courses = json.load(file)
+    except FileNotFoundError:
+        courses = []
 
-@app.route("/todos", methods=["POST"])
-def add_todo():
-    new_todo = request.get_json()
-    new_todo["id"] = len(todos) + 1
-    todos.append(new_todo)
-    return jsonify(new_todo)
+def save_data():
+    with open("courses.json", "w") as file:
+        json.dump(courses, file)
 
-@app.route("/todos/<int:todo_id>", methods=["DELETE"])
-def delete_todo(todo_id):
-    todo = next((todo for todo in todos if todo["id"] == todo_id), None)
-    if todo:
-        todos.remove(todo)
-        return jsonify({"message": "Todo deleted"})
+@app.route("/courses", methods=["GET"])
+def get_courses():
+    return jsonify(courses)
+
+@app.route("/courses", methods=["POST"])
+def add_course():
+    new_course = request.get_json()
+    new_course["id"] = len(courses) + 1
+    courses.append(new_course)
+    save_data()
+    return jsonify(new_course)
+
+@app.route("/courses/<int:course_id>", methods=["DELETE"])
+def delete_course(course_id):
+    course = next((course for course in courses if course["id"] == course_id), None)
+    if course:
+        courses.remove(course)
+        save_data()
+        return jsonify({"message": "Course deleted"})
     else:
-        return jsonify({"message": "Todo not found"}), 404
+        return jsonify({"message": "Course not found"}), 404
 
 if __name__ == "__main__":
+    load_data()
     app.run(debug=True)
