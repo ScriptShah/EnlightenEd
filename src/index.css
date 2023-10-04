@@ -300,7 +300,9 @@ h6 {
 }
 .course__card_delete__icon {
   @apply w-full h-[30px] flex justify-start;
+  
 }
+
 .course__card_delete__icon svg {
   @apply fill-[rgb(253,117,117)] hover:fill-[rgb(255,16,16)];
 }
@@ -427,14 +429,30 @@ h6 {
   @apply w-full flex overflow-x-scroll gap-4 pb-[60px] xl:justify-center xl:overflow-hidden;
 }
 .instructor__card {
-  @apply flex items-center w-[335px] h-[465px] bg-white shrink-0 gap-4 rounded-[20px] hover:translate-y-[15px] hover:duration-[0.5s] hover:cursor-pointer;
+  @apply flex items-center w-[335px] h-[h-full] bg-white shrink-0 gap-4 rounded-[20px] hover:translate-y-[15px] hover:duration-[0.5s] hover:cursor-pointer;
   flex-flow: column nowrap;
 }
+
+.instructor__Card_delete__icon {
+  @apply w-full h-[30px] flex justify-start;
+  position: relative;
+  top: 3%;
+  left: 3%;
+  z-index: 2;
+}
+
+.instructor__Card_delete__icon svg {  
+  @apply fill-[rgb(253,117,117)] hover:fill-[rgb(255,16,16)];
+}
+
 .instructor__Card__image__container {
   @apply w-full;
+  
 }
 .instructor__Card__image {
   @apply w-full rounded-t-[20px];
+  position: relative;
+  top: -15.5%;
 }
 .instructor__Card__instructor__info {
   @apply flex items-center;

@@ -1,4 +1,5 @@
-import {React,useState} from 'react'
+import {React,useState,useEffect} from 'react'
+import axios from 'axios'
 import Instructor__Card from './Instructor__Card'
 import instructor__card1 from '../assets/instructor__card1.png' 
 import instructor__card2 from '../assets/Instructor__card2.png' 
@@ -7,10 +8,60 @@ import instructor__card4 from '../assets/Instructor__card4.png'
 
 const Instructors = () => {
   const [toggleState, setToggleState] = useState(0);
+  const [instructors, setInstructors] = useState([]);
+  const [newInstructors, setNewInstructors] = useState({
+    name: "",
+    position: "",
+    followers: "",
+    courser: "",
+  });
+
+  useEffect(() => {
+    fetchInstructor();
+  }, []);
+
+
+  const fetchInstructor = () => {
+    axios.get("http://localhost:5000/instructors")
+      .then((response) => setInstructors(response.data))
+      .catch((error) => console.error(error));
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewInstructors({ ...newInstructors, [name]: value });
+  };
+
+
+  const addInstructor = () => {
+    axios.post("http://localhost:5000/instructors", newInstructors)
+      .then((response) => {
+        setInstructors([...instructors, response.data]);
+        setNewInstructors({
+          name: "",
+          position: "",
+          followers: "",
+          courser: "",
+        });
+      })
+      .catch((error) => console.error(error));
+  }; 
+
+
+  const deleteInstructor = (id) => {
+    axios.delete(`http://localhost:5000/instructors/${id}`)
+      .then(() => {
+        setInstructors(instructors.filter((instructor) => instructor.id !== id));
+      })
+      .catch((error) => console.error(error));
+  };  
+
 
   const toggleTab = (index) => {
       setToggleState(index);
   }
+
+
   return (
     <section className="instructors" id='instructors'>
 
@@ -45,10 +96,10 @@ const Instructors = () => {
         <div className={toggleState === 1 ? "instructors__add__form__container" : "instructors__add__form__container__close"}>
           <form className='instructors__add__form'>
             <h2 className="instructors__add__form__title">Add new instructor</h2>
-            <input type="text"  placeholder="Instructor Name" className='instructors__add__form__course title' />
-            <input type="text"  placeholder="Instructor Position" className='instructors__add__form__course position' />
-            <input type="text"  placeholder="Instructor Followers"  className='instructors__add__form__course duration'/>
-            <input type="text"  placeholder="Instructor Courser" className='instructors__add__form__course price' />
+            <input type="text" value={newInstructors.name}  onChange={handleInputChange} placeholder="Instructor Name" className='instructors__add__form__course title' />
+            <input type="text" value={newInstructors.position} onChange={handleInputChange} placeholder="Instructor Position" className='instructors__add__form__course position' />
+            <input type="text" value={newInstructors.followers} onChange={handleInputChange} placeholder="Instructor Followers"  className='instructors__add__form__course duration'/>
+            <input type="text" value={newInstructors.courser} onChange={handleInputChange} placeholder="Instructor Courser" className='instructors__add__form__course price' />
             <div className="instructors__add__form__button__container">
               <button type="button" className='instructors__add__form__button add' onClick={() => toggleTab(0)} >Save</button>
               <button type="button" className='instructors__add__form__button close' onClick={() => toggleTab(0)} >close</button>
@@ -56,36 +107,13 @@ const Instructors = () => {
           </form>
         </div>
     <div className="instructors__cards__container">
-      <Instructor__Card
+      <Instructor__Card key={instructors.id}
         instructor__card__image={instructor__card1}
-        instructor__card__name={"Mahmood Fazile"}
-        instructor__card__position={"UI / UX designer"}
-        instructor__card__followers={"2,340"}
-        instructor__card__coursers={12}
-      />
-
-      <Instructor__Card
-        instructor__card__image={instructor__card2}
-        instructor__card__name={"Leslie Alexander"}
-        instructor__card__position={"Software Engineering"}
-        instructor__card__followers={"2,340"}
-        instructor__card__coursers={12}
-      />
-
-      <Instructor__Card
-        instructor__card__image={instructor__card3}
-        instructor__card__name={"Devon Lane"}
-        instructor__card__position={"Leader Manager"}
-        instructor__card__followers={"2,340"}
-        instructor__card__coursers={12}
-      />
-
-      <Instructor__Card
-        instructor__card__image={instructor__card4}
-        instructor__card__name={"Savannah Nguyen"}
-        instructor__card__position={"Mobile Developer"}
-        instructor__card__followers={"2,340"}
-        instructor__card__coursers={12}
+        instructor__card__name={instructors.name}
+        instructor__card__position={instructors.position}
+        instructor__card__followers={instructors.followers}
+        instructor__card__coursers={instructors.courser}
+        deleteCard={deleteInstructor(instructors.id)}
       />
     </div>
   </section>    
@@ -93,6 +121,3 @@ const Instructors = () => {
 }
 
 export default Instructors
-
-
-// FF9900
