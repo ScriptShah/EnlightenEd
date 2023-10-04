@@ -549,7 +549,7 @@ h6 {
 
 /* Adding forms */
 .instructors__add__instructor {
-  @apply text-xl w-[150px] text-[#06c] self-center mb-5 hover:text-white;
+  @apply text-xl w-[auto] text-[#06c] self-center mb-5 hover:text-white;
   @apply flex h-[50px] justify-center items-center gap-1.5 shadow-[0px_6px_14px_2px_rgba(0,102,204,0.25)] text-white not-italic font-semibold leading-[normal] px-[40px] py-3.5 rounded-[25px];
   background: linear-gradient(
       0deg,
@@ -660,16 +660,19 @@ h6 {
   }
 
   .courses__add__form__title,
-.instructors__add__form__title {
- font-size: 1.3rem;
+  .instructors__add__form__title {
+    font-size: 1.3rem;
+  }
+
+  .courses__add__form, .instructors__add__form{
+    width: auto;
+    height: auto;
+  }
+   
 }
 
-.courses__add__form, .instructors__add__form{
-  width: auto;
-  height: auto;
-}
- 
-}
+
+
 
 @media (min-width: 768px) {
   .burger {
