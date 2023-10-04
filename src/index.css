@@ -571,6 +571,7 @@ h6 {
 .instructors__add__form__container {
   @apply fixed w-full h-full bg-[#0000008d] flex items-center justify-center left-0 top-[0%];
   flex-flow: column nowrap;
+  background-color: #000000b6;
 }
 .courses__add__form__container__close,
 .instructors__add__form__container__close {
@@ -579,6 +580,7 @@ h6 {
 .courses__add__form__course,
 .instructors__add__form__course {
   @apply h-10 p-2.5 rounded-[5px];
+  height: auto;
 }
 .courses__add__form__course::placeholder,
 .instructors__add__form__course::placeholder {
