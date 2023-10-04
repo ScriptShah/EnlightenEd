@@ -569,7 +569,7 @@ h6 {
 }
 .courses__add__form__container,
 .instructors__add__form__container {
-  @apply fixed w-full h-full bg-[#0000008d] flex items-center justify-center left-0 top-[0%];
+  @apply fixed  h-full bg-[#0000008d] flex items-center justify-center left-0 top-[0%];
   flex-flow: column nowrap;
   background-color: #000000b6;
 }
