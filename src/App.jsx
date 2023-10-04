@@ -9,7 +9,6 @@ import Summary from './components/Summary'
 import Blog from './components/Blog'
 import CopyRight from './components/CopyRight'
 import {grabData} from '../config/helpers';
-import Test from './components/test'
 
 const App = () => {
   // grabData();
@@ -26,7 +25,6 @@ const App = () => {
       <FeedBack/>
       <Footer/>
       <CopyRight/>
-      <Test/>
     </div>
   )
 }
