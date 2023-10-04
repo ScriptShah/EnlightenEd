@@ -660,15 +660,15 @@ h6 {
 
   .courses__add__form__title,
 .instructors__add__form__title {
-  @apply text-[1.3rem] text-white;
+ font-size: 1.3rem;
 }
 
-.courses__add__form,
-.instructors__add__form {
-  @apply flex gap-4 w-[calc(100%_-_10%)] h-[calc(100%_-_30%)] bg-[rgba(255,255,255,0.288)] p-[35px] rounded-[20px];
-  flex-flow: column;
+.courses__add__form, .instructors__add__form{
+  width: auto;
 }
+ 
 }
+
 @media (min-width: 768px) {
   .burger {
     @apply hidden;
