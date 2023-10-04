@@ -1,4 +1,4 @@
-import React from 'react'
+import {React,useState} from 'react'
 import Course__Card from './Course__Card'
 import course1 from "../assets/course1.png"
 import course2 from "../assets/course2.png"
@@ -12,10 +12,17 @@ import instructor3 from "../assets/instructor3.png"
 
 
 const Courses = () => {
+
+  const [toggleState, setToggleState] = useState(0);
+
+  const toggleTab = (index) => {
+      setToggleState(index);
+  }
+
+
   return (
     <section className="courses" id='courses'>
         
-
         <div className="course__title__content">
 
             <div className="course__title__container">
@@ -54,9 +61,23 @@ const Courses = () => {
 
             </div>
         </div>
-        <button className="courses__add__course">
+        <button className="courses__add__course" onClick={() => toggleTab(1)}>
           add
         </button>
+        <div className={toggleState === 1 ? "courses__add__form__container" : "courses__add__form__container__close"}>
+          <form className='courses__add__form'>
+            <h2 className="courses__add__form__title">Add new course</h2>
+            <input type="text"  placeholder="Course Title" className='courses__add__form__course title' />
+            <input type="text"  placeholder="Instructor" className='courses__add__form__course instructor' />
+            <input type="text"  placeholder="Instructor Position" className='courses__add__form__course position' />
+            <input type="text"  placeholder="Course Duration"  className='courses__add__form__course duration'/>
+            <input type="text"  placeholder="price" className='courses__add__form__course price' />
+            <div className="courses__add__form__button__container">
+              <button type="button" className='courses__add__form__button add' onClick={() => toggleTab(0)} >Save</button>
+              <button type="button" className='courses__add__form__button close' onClick={() => toggleTab(0)} >close</button>
+            </div>
+          </form>
+        </div>
         <div className="course__cards__container">
 
           <Course__Card 

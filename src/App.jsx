@@ -8,9 +8,14 @@ import Header from './components/Header'
 import Summary from './components/Summary'
 import Blog from './components/Blog'
 import CopyRight from './components/CopyRight'
+import {grabData} from '../config/helpers';
+import Test from './components/test'
 
 const App = () => {
+  // grabData();
+
   return (
+    
     <div className='main'>
       <Header/>
       <Home/>
@@ -21,6 +26,7 @@ const App = () => {
       <FeedBack/>
       <Footer/>
       <CopyRight/>
+      <Test/>
     </div>
   )
 }

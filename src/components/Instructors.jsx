@@ -1,4 +1,4 @@
-import React from 'react'
+import {React,useState} from 'react'
 import Instructor__Card from './Instructor__Card'
 import instructor__card1 from '../assets/instructor__card1.png' 
 import instructor__card2 from '../assets/Instructor__card2.png' 
@@ -6,6 +6,11 @@ import instructor__card3 from '../assets/Instructor__card3.png'
 import instructor__card4 from '../assets/Instructor__card4.png' 
 
 const Instructors = () => {
+  const [toggleState, setToggleState] = useState(0);
+
+  const toggleTab = (index) => {
+      setToggleState(index);
+  }
   return (
     <section className="instructors" id='instructors'>
 
@@ -34,7 +39,22 @@ const Instructors = () => {
 
         </div>
     </div>
-
+        <button className="instructors__add__instructor" onClick={() => toggleTab(1)}>
+          add
+        </button>
+        <div className={toggleState === 1 ? "instructors__add__form__container" : "instructors__add__form__container__close"}>
+          <form className='instructors__add__form'>
+            <h2 className="instructors__add__form__title">Add new instructor</h2>
+            <input type="text"  placeholder="Instructor Name" className='instructors__add__form__course title' />
+            <input type="text"  placeholder="Instructor Position" className='instructors__add__form__course position' />
+            <input type="text"  placeholder="Instructor Followers"  className='instructors__add__form__course duration'/>
+            <input type="text"  placeholder="Instructor Courser" className='instructors__add__form__course price' />
+            <div className="instructors__add__form__button__container">
+              <button type="button" className='instructors__add__form__button add' onClick={() => toggleTab(0)} >Save</button>
+              <button type="button" className='instructors__add__form__button close' onClick={() => toggleTab(0)} >close</button>
+            </div>
+          </form>
+        </div>
     <div className="instructors__cards__container">
       <Instructor__Card
         instructor__card__image={instructor__card1}

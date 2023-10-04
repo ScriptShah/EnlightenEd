@@ -1,9 +1,6 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
 *,
 *::before,
 *::after {
@@ -94,10 +91,11 @@ h6 {
   src: url(../fonts/CircularStd-Bold.otf);
 }
 .main {
-  @apply flex ;
+  @apply select-none;
+  @apply flex;
   flex-flow: column nowrap;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  user-select: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .header {
   @apply inline-flex w-full h-[50px] justify-between items-center text-base px-[30px] py-[50px] lg:px-20 lg:py-[50px];
@@ -129,11 +127,10 @@ h6 {
   );
 }
 .home {
+  @apply items-center w-full;
   @apply flex gap-8 items-center px-[50px] py-[25px] sm:gap-12 md:gap-8;
   flex-flow: column nowrap;
-  align-items: center;
   background: url("./assets//Rectangle.svg") 50% / cover no-repeat;
-  width: 100%;
 }
 .home__image__container__left {
   @apply duration-[0.5s] hover:translate-y-[-35px] hover:duration-[infinite];
@@ -155,8 +152,8 @@ h6 {
   flex-flow: column nowrap;
 }
 .home__content__announcement {
+  @apply text-center;
   @apply flex items-center;
-  text-align: center;
   flex-flow: column nowrap;
 }
 .home__content__announcement__header {
@@ -190,19 +187,17 @@ h6 {
   word-wrap: break-word;
 }
 .home__content__button__container {
+  @apply justify-center items-center pt-2.5;
   @apply flex gap-6;
-  padding-top: 10px;
   flex-flow: row wrap;
-  justify-content: center;
-  align-items: center
 }
 .home__content__button__left {
+  @apply shrink-0;
   @apply flex h-[50px] justify-center items-center shadow-[0px_6px_14px_2px_rgba(9,91,184,0.18)] text-white text-[17px] shrink-0 px-[50px] py-[13px] rounded-[25px];
   background: var(
     --Gradint,
     linear-gradient(98deg, #06c 11.06%, #124fa2 87.56%)
   );
-  flex-shrink: 0;
 }
 .home__content__button__left:hover {
   background: var(
@@ -211,8 +206,8 @@ h6 {
   );
 }
 .home__content__button__right {
+  @apply shrink-0;
   @apply flex h-[52px] justify-center items-center text-[rgb(170,170,170)] font-semibold text-[17px] shrink-0 px-[50px] py-3.5 rounded-[25px] border-2 border-solid border-[#BDBDBD] hover:text-black hover:border-2 hover:border-solid hover:border-[rgba(0,0,0,0.798)];
-  flex-shrink: 0;
 }
 .summary {
   @apply flex justify-center gap-4 xl:gap-8;
@@ -262,6 +257,7 @@ h6 {
   @apply hidden xl:flex;
 }
 .courses {
+  @apply gap-4;
   @apply flex items-center w-full pb-0 p-5;
   flex-flow: column nowrap;
   background: #edf1f5;
@@ -284,12 +280,9 @@ h6 {
 .course__title__txt {
   @apply text-[rgba(0,0,0,0.411)] text-sm font-semibold xl:text-[rgba(0,0,0,0.411)] xl:text-base xl:font-semibold;
 }
-
-
 .courses__add__course {
+  @apply text-xl mb-5;
   @apply flex h-[50px] justify-center items-center gap-1.5 shadow-[0px_6px_14px_2px_rgba(0,102,204,0.25)] text-white not-italic font-semibold leading-[normal] px-[40px] py-3.5 rounded-[25px];
-  margin-bottom: 20px;
-  font-size: 20px;
   background: linear-gradient(
       0deg,
       rgba(0, 0, 0, 0.25) 0%,
@@ -297,8 +290,6 @@ h6 {
     ),
     linear-gradient(98deg, #06c 11.06%, #124fa2 87.56%);
 }
-
-
 .courses__add__course:hover {
   background: linear-gradient(
       0deg,
@@ -307,16 +298,12 @@ h6 {
     ),
     linear-gradient(98deg, rgb(20, 134, 248) 11.06%, #227eff 87.56%);
 }
-
-
 .course__card_delete__icon {
   @apply w-full h-[30px] flex justify-start;
 }
 .course__card_delete__icon svg {
   @apply fill-[rgb(253,117,117)] hover:fill-[rgb(255,16,16)];
 }
-
-
 .course__cards__container {
   @apply flex w-full gap-8 overflow-x-scroll overflow-y-hidden scroll-smooth pl-8 pb-[30px] xl:justify-center xl:gap-6;
   flex-flow: row nowrap;
@@ -477,9 +464,6 @@ h6 {
 .instructor__card__coursers__data {
   @apply text-[15px] font-medium text-[#6464647d];
 }
-
-
-
 .feedback {
   @apply flex xl:px-0 xl:py-10;
   flex-flow: column nowrap;
@@ -527,9 +511,6 @@ h6 {
 .feedback__Card__author__position {
   @apply font-normal text-sm text-[#0000008e] xl:text-[15px];
 }
-
-
-
 .footer {
   @apply flex items-center bg-[#06c] gap-8 px-0 py-[60px];
   flex-flow: column nowrap;
@@ -566,50 +547,116 @@ h6 {
   @apply hidden xl:flex xl:self-end;
 }
 
-/* breakpoints */
-
-@media (max-width:500px) {
-  .home__image__small {
-    display: flex;
-    flex-flow: row wrap;
-    width: 100%;
-    flex-shrink: 1;
-  }
-
-
-  .home__image__left__small,.home__image__right__small {
-    display: block;
-    width: 100%;
-    flex-shrink: 1;
-  }
-
-  .home__content__announcement__header__txt {
-    gap: 0px;
-  }
-
-  .home__content__announcement__header__txt__one,
-  .home__content__announcement__header__txt__two {
-    font-size: 1.2rem;
-  }
-
-  .course__cards__container {
-    align-items: center;
-    padding: 0;
-    
-  }
-
-
-  .course__card {
-    width: calc(100% - 5%);
-  }
-
- 
-  .instructor__card {
-    width: calc(100% - 5%);
-  }
+/* Adding forms */
+.instructors__add__instructor {
+  @apply text-xl w-[150px] text-[#06c] self-center mb-5 hover:text-white;
+  @apply flex h-[50px] justify-center items-center gap-1.5 shadow-[0px_6px_14px_2px_rgba(0,102,204,0.25)] text-white not-italic font-semibold leading-[normal] px-[40px] py-3.5 rounded-[25px];
+  background: linear-gradient(
+      0deg,
+      rgba(231, 231, 231, 0.25) 0%,
+      rgba(247, 244, 244, 0.25) 100%
+    ),
+    linear-gradient(98deg, rgb(234, 238, 241) 11.06%, #e0edff 87.56%);
+    color: #06c;
+}
+.instructors__add__instructor:hover {
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+    linear-gradient(98deg, rgb(20, 134, 248) 11.06%, #227eff 87.56%);
+}
+.courses__add__form__container,
+.instructors__add__form__container {
+  @apply fixed w-full h-full bg-[#0000008d] flex items-center justify-center left-0 top-[0%];
+  flex-flow: column nowrap;
+}
+.courses__add__form__container__close,
+.instructors__add__form__container__close {
+  @apply hidden;
+}
+.courses__add__form__course,
+.instructors__add__form__course {
+  @apply h-10 p-2.5 rounded-[5px];
+}
+.courses__add__form__course::placeholder,
+.instructors__add__form__course::placeholder {
+  @apply pl-2.5;
+}
+.courses__add__form__title,
+.instructors__add__form__title {
+  @apply text-[2rem] text-white;
+}
+.courses__add__form,
+.instructors__add__form {
+  @apply flex gap-4 w-[calc(100%_-_40%)] h-[calc(100%_-_40%)] bg-[rgba(255,255,255,0.288)] p-[35px] rounded-[20px];
+  flex-flow: column;
+}
+.courses__add__form__button__container,
+.instructors__add__form__button__container {
+  @apply w-full h-[100px] flex justify-between items-start;
+}
+.instructors__add__form__button__container {
+  @apply mt-10;
+}
+.courses__add__form__button {
+  @apply text-xl mb-5;
+  @apply flex h-[50px] justify-center items-center gap-1.5 shadow-[0px_6px_14px_2px_rgba(0,102,204,0.25)] text-white not-italic font-semibold leading-[normal] px-[40px] py-3.5 rounded-[25px];
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+    linear-gradient(98deg, #06c 11.06%, #124fa2 87.56%);
+}
+.instructors__add__form__button {
+  @apply text-xl mb-5;
+  @apply flex h-[50px] justify-center items-center gap-1.5 shadow-[0px_6px_14px_2px_rgba(0,102,204,0.25)] text-white not-italic font-semibold leading-[normal] px-[40px] py-3.5 rounded-[25px];
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+    linear-gradient(98deg, #06c 11.06%, #124fa2 87.56%);
+}
+.courses__add__form__button,
+.instructors__add__form__button:hover {
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+    linear-gradient(98deg, rgb(20, 134, 248) 11.06%, #227eff 87.56%);
 }
 
-
+/* breakpoints */
+@media (max-width: 500px) {
+  .home__image__small {
+    @apply flex w-full shrink;
+    flex-flow: row wrap;
+  }
+  .home__image__left__small,
+  .home__image__right__small {
+    @apply block w-full shrink;
+  }
+  .home__content__announcement__header__txt {
+    @apply gap-0;
+  }
+  .home__content__announcement__header__txt__one,
+  .home__content__announcement__header__txt__two {
+    @apply text-[1.2rem];
+  }
+  .course__cards__container {
+    @apply items-center p-0;
+  }
+  .course__card {
+    @apply w-[calc(100%_-_5%)];
+  }
+  .instructor__card {
+    @apply w-[calc(100%_-_5%)];
+  }
+}
 @media (min-width: 768px) {
   .burger {
     @apply hidden;
@@ -675,5 +722,3 @@ h6 {
     flex-flow: row nowrap;
   }
 }
-
-
