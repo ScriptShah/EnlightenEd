@@ -284,6 +284,31 @@ h6 {
 .course__title__txt {
   @apply text-[rgba(0,0,0,0.411)] text-sm font-semibold xl:text-[rgba(0,0,0,0.411)] xl:text-base xl:font-semibold;
 }
+
+
+.courses__add__course {
+  @apply flex h-[50px] justify-center items-center gap-1.5 shadow-[0px_6px_14px_2px_rgba(0,102,204,0.25)] text-white not-italic font-semibold leading-[normal] px-[40px] py-3.5 rounded-[25px];
+  margin-bottom: 20px;
+  font-size: 20px;
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+    linear-gradient(98deg, #06c 11.06%, #124fa2 87.56%);
+}
+
+
+.courses__add__course:hover {
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+    linear-gradient(98deg, rgb(20, 134, 248) 11.06%, #227eff 87.56%);
+}
+
+
 .course__cards__container {
   @apply flex w-full gap-8 overflow-x-scroll overflow-y-hidden scroll-smooth pl-8 pb-[30px] xl:justify-center xl:gap-6;
   flex-flow: row nowrap;
@@ -642,3 +667,4 @@ h6 {
     flex-flow: row nowrap;
   }
 }
+

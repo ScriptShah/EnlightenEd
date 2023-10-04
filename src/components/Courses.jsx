@@ -14,6 +14,7 @@ import instructor3 from "../assets/instructor3.png"
 const Courses = () => {
   return (
     <section className="courses" id='courses'>
+        
 
         <div className="course__title__content">
 
@@ -53,7 +54,9 @@ const Courses = () => {
 
             </div>
         </div>
-
+        <button className="courses__add__course">
+          add
+        </button>
         <div className="course__cards__container">
 
           <Course__Card 
