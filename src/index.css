@@ -309,6 +309,14 @@ h6 {
 }
 
 
+.course__card_delete__icon {
+  @apply w-full h-[30px] flex justify-start;
+}
+.course__card_delete__icon svg {
+  @apply fill-[rgb(253,117,117)] hover:fill-[rgb(255,16,16)];
+}
+
+
 .course__cards__container {
   @apply flex w-full gap-8 overflow-x-scroll overflow-y-hidden scroll-smooth pl-8 pb-[30px] xl:justify-center xl:gap-6;
   flex-flow: row nowrap;
@@ -667,4 +675,5 @@ h6 {
     flex-flow: row nowrap;
   }
 }
+
 
