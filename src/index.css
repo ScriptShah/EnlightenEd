@@ -580,6 +580,7 @@ h6 {
 .courses__add__form__course,
 .instructors__add__form__course {
   @apply  p-2.5 rounded-[5px];
+  width: auto;
 }
 .courses__add__form__course::placeholder,
 .instructors__add__form__course::placeholder {
@@ -665,6 +666,7 @@ h6 {
 
 .courses__add__form, .instructors__add__form{
   width: auto;
+  height: auto;
 }
  
 }
