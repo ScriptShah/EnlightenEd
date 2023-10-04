@@ -596,7 +596,7 @@ h6 {
 }
 .courses__add__form__button__container,
 .instructors__add__form__button__container {
-  @apply w-full h-[100px] flex justify-between items-start;
+  @apply w-full h-[auto] flex justify-between items-start;
 }
 .instructors__add__form__button__container {
   @apply mt-10;
