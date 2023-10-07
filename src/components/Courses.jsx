@@ -1,5 +1,9 @@
-import {React,useState,useEffect} from 'react'
+import React from 'react'
+import {useState,useEffect} from 'react'
 import axios from 'axios'
+
+
+
 import Course__Card from './Course__Card'
 import course1 from "../assets/course1.png"
 import course2 from "../assets/course2.png"
@@ -30,7 +34,7 @@ const Courses = () => {
 
 
   const fetchCourses = () => {
-    axios.get("http://localhost:5000/courses")
+    axios.get("http://localhost:8000/courses")
       .then((response) => setCourses(response.data))
       .catch((error) => console.error(error));
   };
@@ -46,7 +50,7 @@ const Courses = () => {
 
 
   const addCourse = () => {
-    axios.post("http://localhost:5000/courses", newCourse)
+    axios.post("http://localhost:8000/courses", newCourse)
       .then((response) => {
         setCourses([...courses, response.data]);
         setNewCourse({
@@ -62,7 +66,7 @@ const Courses = () => {
 
 
   const deleteCourse = (id) => {
-    axios.delete(`http://localhost:5000/courses/${id}`)
+    axios.delete(`http://localhost:8000/courses/${id}`)
       .then(() => {
         setCourses(courses.filter((course) => course.id !== id));
       })
@@ -133,7 +137,7 @@ const Courses = () => {
           </form>
         </div>
         <div className="course__cards__container">
-          {courses.map((course) =>(
+          {courses && courses.data && courses.data.map((course) =>(
             <Course__Card key={course.id}
               course__image = {course1}
               deleteCard={() => deleteCourse(course.id)}
