@@ -21,7 +21,10 @@ Currently, two official plugins are available:
 
 
 
--- Setup the backend ---
+
+--------cmd-------------
+
+-- Setup the backend 
 
 For installing python virtual environment 
 
