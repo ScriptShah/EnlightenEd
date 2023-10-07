@@ -2,8 +2,6 @@ import React from 'react'
 import {useState,useEffect} from 'react'
 import axios from 'axios'
 
-
-
 import Course__Card from './Course__Card'
 import course1 from "../assets/course1.png"
 import course2 from "../assets/course2.png"
@@ -28,16 +26,9 @@ const Courses = () => {
     price: "",
   });
 
-  useEffect(() => {
-    fetchCourses();
-  }, []);
+  // useEffect(() => {
 
-
-  const fetchCourses = () => {
-    axios.get("http://localhost:8000/courses")
-      .then((response) => setCourses(response.data))
-      .catch((error) => console.error(error));
-  };
+  // }, []);
 
 
 
@@ -49,33 +40,63 @@ const Courses = () => {
 
 
 
-  const addCourse = () => {
-    axios.post("http://localhost:8000/courses", newCourse)
-      .then((response) => {
-        setCourses([...courses, response.data]);
-        setNewCourse({
-          title: "",
-          instructor: "",
-          position: "",
-          duration: "",
-          price: "",
-        });
-      })
-      .catch((error) => console.error(error));
-  };  
-
-
-  const deleteCourse = (id) => {
-    axios.delete(`http://localhost:8000/courses/${id}`)
-      .then(() => {
-        setCourses(courses.filter((course) => course.id !== id));
-      })
-      .catch((error) => console.error(error));
-  };  
+ 
 
   const toggleTab = (index) => {
       setToggleState(index);
   }
+
+
+  const addCourse = async (e) => {
+    e.preventDefault();
+    console.log(courses);
+  
+    setNewCourse({
+      instructor: "",
+      instructor_position: "",
+      course_title: "",
+      course_duration: "",
+      price: ""
+    });
+  
+    const url = "http://localhost:8000/courses/";
+  
+    const response = await fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin', 
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      redirect: 'follow',
+      referrerPolicy: 'no-referrer', 
+      body: JSON.stringify({
+        "instructor": newCourse['instructor'],
+        "instructor_position": newCourse['instructor_position'],
+        "course_title": newCourse['course_title'],
+        "course_duration": newCourse['course_duration'],
+        "price": newCourse['price']
+      }) 
+    });
+  
+    response.json().then(response => {
+      if (response.status === 'ok') {
+        alert("course added successfully")
+      } else {
+        alert("Failed to add course")
+      }
+    });
+  }
+
+
+
+
+
+
+
+
+
 
 
   return (
