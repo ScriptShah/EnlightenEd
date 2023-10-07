@@ -19,10 +19,10 @@ const Courses = () => {
   const [toggleState, setToggleState] = useState(0);
   const [courses, setCourses] = useState([]);
   const [newCourse, setNewCourse] = useState({
-    title: "",
+    course_title: "",
     instructor: "",
-    position: "",
-    duration: "",
+    instructor_position: "",
+    course_duration: "",
     price: "",
   });
 
@@ -46,6 +46,30 @@ const Courses = () => {
       setToggleState(index);
   }
 
+
+
+  const getAllCourses = async () => {
+    const url = "http://localhost:8000/courses/";
+  
+    const response = await fetch(url, {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      redirect: 'follow',
+      referrerPolicy: 'no-referrer',
+    });
+  
+    response.json().then(data => {
+      // Process the data and show it
+      console.log(data);
+    });
+  }
+
+  getAllCourses();
 
   const addCourse = async (e) => {
     e.preventDefault();
@@ -146,10 +170,10 @@ const Courses = () => {
         <div className={toggleState === 1 ? "courses__add__form__container" : "courses__add__form__container__close"}>
           <form className='courses__add__form'>
             <h2 className="courses__add__form__title">Add new course</h2>
-            <input type="text" name="title" value={newCourse.title}  onChange={handleInputChange} placeholder="Course Title" className='courses__add__form__course title' />
+            <input type="text" name="course_title" value={newCourse.title}  onChange={handleInputChange} placeholder="Course Title" className='courses__add__form__course title' />
             <input type="text" name="instructor" value={newCourse.instructor} onChange={handleInputChange} placeholder="Instructor" className='courses__add__form__course instructor' />
-            <input type="text" name="position" value={newCourse.position} onChange={handleInputChange} placeholder="Instructor Position" className='courses__add__form__course position' />
-            <input type="text" name="duration" value={newCourse.duration} onChange={handleInputChange} placeholder="Course Duration"  className='courses__add__form__course duration'/>
+            <input type="text" name="instructor_position" value={newCourse.position} onChange={handleInputChange} placeholder="Instructor Position" className='courses__add__form__course position' />
+            <input type="text" name="course_duration" value={newCourse.duration} onChange={handleInputChange} placeholder="Course Duration"  className='courses__add__form__course duration'/>
             <input type="text" name="price" value={newCourse.price} onChange={handleInputChange} placeholder="price" className='courses__add__form__course price' />
             <div className="courses__add__form__button__container">
               <button type="button" className='courses__add__form__button add' onClick={addCourse} >Save</button>
