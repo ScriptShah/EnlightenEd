@@ -48,28 +48,28 @@ const Courses = () => {
 
 
 
-  const getAllCourses = async () => {
-    const url = "http://localhost:8000/courses/";
+  // const getAllCourses = async () => {
+  //   const url = "http://localhost:8000/courses/";
   
-    const response = await fetch(url, {
-      method: 'GET',
-      mode: 'cors',
-      cache: 'no-cache',
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      redirect: 'follow',
-      referrerPolicy: 'no-referrer',
-    });
+  //   const response = await fetch(url, {
+  //     method: 'GET',
+  //     mode: 'cors',
+  //     cache: 'no-cache',
+  //     credentials: 'same-origin',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     redirect: 'follow',
+  //     referrerPolicy: 'no-referrer',
+  //   });
   
-    response.json().then(data => {
-      // Process the data and show it
-      console.log(data);
-    });
-  }
+  //   response.json().then(data => {
+  //     // Process the data and show it
+  //     console.log(data);
+  //   });
+  // }
 
-  getAllCourses();
+  // getAllCourses();
 
   const addCourse = async (e) => {
     e.preventDefault();

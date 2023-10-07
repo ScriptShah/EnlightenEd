@@ -15,19 +15,18 @@ const Instructors = () => {
     name: "",
     position: "",
     followers: "",
-    courser: "",
+    cursor: "",
   });
 
-  useEffect(() => {
-    fetchInstructor();
-  }, []);
+//   useEffect(() => {
+//     fetch("http://127.0.0.1:8000/instructors")
+//     .then(resp => resp.json())
+//     .then(results => {
+//         setInstructors(results.data);
+//     });
+// }, [])
 
 
-  const fetchInstructor = () => {
-    axios.get("http://localhost:8000/instructors")
-      .then((response) => setInstructors(response.data))
-      .catch((error) => console.error(error));
-  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -35,33 +34,51 @@ const Instructors = () => {
   };
 
 
-  const addInstructor = () => {
-    axios.post("http://localhost:8000/instructors", newInstructors)
-      .then((response) => {
-        setInstructors([...instructors, response.data]);
-        setNewInstructors({
-          name: "",
-          position: "",
-          followers: "",
-          courser: "",
-        });
-      })
-      .catch((error) => console.error(error));
-  }; 
-
-
-  const deleteInstructor = (id) => {
-    axios.delete(`http://localhost:8000/instructors/${id}`)
-      .then(() => {
-        setInstructors(instructors.filter((instructor) => instructor.id !== id));
-      })
-      .catch((error) => console.error(error));
-  };  
-
 
   const toggleTab = (index) => {
       setToggleState(index);
   }
+
+  const addInstructor = async (e) => {
+    e.preventDefault();
+    console.log(instructors);
+  
+    setNewInstructors({
+      name: "",
+      position: "",
+      followers: "",
+      cursor: ""
+    });
+  
+    const url = "http://localhost:8000/instructors/";
+  
+    const response = await fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin', 
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      redirect: 'follow',
+      referrerPolicy: 'no-referrer', 
+      body: JSON.stringify({
+        "name": newInstructors['name'],
+        "position": newInstructors['position'],
+        "followers": newInstructors['followers'],
+        "cursor": newInstructors['cursor'],
+      }) 
+    });
+  
+    response.json().then(response => {
+      if (response.status === 'ok') {
+        alert("instructor added successfully")
+      } else {
+        alert("Failed to add instructor")
+      }
+    });
+  }
+
 
 
   return (
@@ -101,7 +118,7 @@ const Instructors = () => {
             <input type="text" name='name' value={newInstructors.name}  onChange={handleInputChange} placeholder="Instructor Name" className='instructors__add__form__course title' />
             <input type="text" name='position' value={newInstructors.position} onChange={handleInputChange} placeholder="Instructor Position" className='instructors__add__form__course position' />
             <input type="text" name='followers' value={newInstructors.followers} onChange={handleInputChange} placeholder="Instructor Followers"  className='instructors__add__form__course duration'/>
-            <input type="text" name='courser' value={newInstructors.courser} onChange={handleInputChange} placeholder="Instructor Courser" className='instructors__add__form__course price' />
+            <input type="text" name='cursor' value={newInstructors.cursor} onChange={handleInputChange} placeholder="Instructor Courser" className='instructors__add__form__course price' />
             <div className="instructors__add__form__button__container">
               <button type="button" className='instructors__add__form__button add' onClick={addInstructor} >Save</button>
               <button type="button" className='instructors__add__form__button close' onClick={() => toggleTab(0)} >close</button>
@@ -109,6 +126,7 @@ const Instructors = () => {
           </form>
         </div>
     <div className="instructors__cards__container">
+      {instructors}
       <Instructor__Card key={instructors.id}
         instructor__card__image={instructor__card1}
         instructor__card__name={instructors.name}
@@ -117,6 +135,16 @@ const Instructors = () => {
         instructor__card__coursers={instructors.courser}
         // deleteCard={deleteInstructor(instructors.id)}
       />
+
+      {/* {instructors.map((instructor) => (
+          <instructor__card
+              instructor__card__image={instructor__card1}
+              instructor__card__name={instructor.name}
+              instructor__card__position={instructor.position}
+              instructor__card__followers={instructor.followers}
+              instructor__card__courses={instructor.cursor}
+          />
+      ))} */}
     </div>
   </section>    
   )
