@@ -1,26 +1,10 @@
 from fastapi import FastAPI
-from tortoise.contrib.fastapi import register_tortoise
+from tortoise.contrib.fastapi import  register_tortoise
 from models import (Course_Pydantic,CourseIn_Pydantic , Course)
 from models import (Instructor_Pydantic,InstructorIn_Pydantic, Instructor)
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-
-# adding cors urls
-origins = {
-    'http://localhost:3000',
-    'http://127.0.0.1:3000/'
-}
-
-# add middleware
-app.add_middleware (
-    CORSMiddleware,
-    allow_origins = origins,
-    allow_cerdentials = True,
-    allow_methods = {"*"},
-    allow_headers = {"*"}
-)
-
 
 @app.get('/')
 def index():

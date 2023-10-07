@@ -10,9 +10,9 @@ Currently, two official plugins are available:
 
 -- Setup the frontend
 
-------  npm install ------  installing dependencies
+step 1 ------  npm install ------  installing dependencies
 
------- npm run dev ------   starting the frontend
+step 2 ------ npm run dev ------   starting the frontend
 
 
 
@@ -26,19 +26,20 @@ Currently, two official plugins are available:
 
 -- Setup the backend 
 
-For installing python virtual environment 
+step 1---- installing python virtual environment 
 
         py -m venv env .
 
-For running python virtual environment
+step 2---- running python virtual environment
 
     Scripts\activate.bat
 
-For install server.py requirements 
+step 3---- install server.py requirements 
 
-    pip install uvicorn fastapi tortoise
+    pip install uvicorn fastapi tortoise-orm
+    pip install tortoise-orm[fastapi]
 
-Finaly for running the server 
+Finally for running the server 
 
     uvicorn app:app --reload 
 
