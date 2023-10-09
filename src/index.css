@@ -602,10 +602,8 @@ h6 {
   fill: #06c;
 }
 
-.update_add:hover {
-  cursor: pointer;
-}
-.update__icon.course {
+
+.update__icon svg,.update_add svg {
   transition: 0.70s;
   -webkit-transition: 0.70s;
   -moz-transition: 0.70s;
@@ -613,7 +611,8 @@ h6 {
   -o-transition: 0.70s;
 }
 
-.update__icon.course svg {
+.update__icon > svg,.update_add> svg:hover {
+  cursor: pointer;
   transition: 0.70s;
   -webkit-transition: 0.70s;
   -moz-transition: 0.70s;
