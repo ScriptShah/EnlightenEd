@@ -560,7 +560,7 @@ h6 {
 .instructors__add__instructor {
   @apply text-[#06c];
   @apply text-xl w-[auto] text-[#06c] self-center mb-5 hover:text-white;
-  @apply flex h-[50px] justify-center items-center gap-1.5 shadow-[0px_6px_14px_2px_rgba(0,102,204,0.25)] text-white not-italic font-semibold leading-[normal] px-[40px] py-3.5 rounded-[25px];
+  @apply flex h-[50px] justify-center items-center gap-1.5 shadow-[0px_6px_14px_2px_rgba(0,102,204,0.25)] text-[#06C] not-italic font-semibold leading-[normal] px-[40px] py-3.5 rounded-[25px];
   background: linear-gradient(
       0deg,
       rgba(231, 231, 231, 0.25) 0%,
