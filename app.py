@@ -25,7 +25,7 @@ app.add_middleware(
 
 @app.get('/')
 def index():
-    return {'Msg':"go to /docs for the api documentation"}
+    return "go to /docs for the api documentation"
 
 
 @app.post('/courses')

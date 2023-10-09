@@ -18,15 +18,10 @@ const Instructors = () => {
     cursor: "",
   });
 
-//   useEffect(() => {
-//     fetch("http://127.0.0.1:8000/instructors")
-//     .then(resp => resp.json())
-//     .then(results => {
-//         setInstructors(results.data);
-//     });
-// }, [])
 
-
+  useEffect(() => {
+    getAllInstructors();
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -38,6 +33,32 @@ const Instructors = () => {
   const toggleTab = (index) => {
       setToggleState(index);
   }
+
+
+
+
+  
+    const getAllInstructors = async () => {
+      const url = "http://localhost:8000/instructors/";
+  
+      const response = await fetch(url, {
+        method: 'GET',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+      });
+  
+      const data = await response.json();
+      setInstructors(data.data);
+    };
+
+
+
 
   const addInstructor = async (e) => {
     e.preventDefault();
@@ -126,25 +147,16 @@ const Instructors = () => {
           </form>
         </div>
     <div className="instructors__cards__container">
-      {instructors}
-      <Instructor__Card key={instructors.id}
-        instructor__card__image={instructor__card1}
-        instructor__card__name={instructors.name}
-        instructor__card__position={instructors.position}
-        instructor__card__followers={instructors.followers}
-        instructor__card__coursers={instructors.courser}
-        // deleteCard={deleteInstructor(instructors.id)}
-      />
-
-      {/* {instructors.map((instructor) => (
-          <instructor__card
+      {instructors.map((instructor) => (
+          <Instructor__Card
+          key={instructor.id}
               instructor__card__image={instructor__card1}
               instructor__card__name={instructor.name}
               instructor__card__position={instructor.position}
               instructor__card__followers={instructor.followers}
               instructor__card__courses={instructor.cursor}
           />
-      ))} */}
+      ))}
     </div>
   </section>    
   )
