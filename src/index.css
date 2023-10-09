@@ -96,7 +96,6 @@ h6 {
   flex-flow: column nowrap;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    
 }
 .header {
   @apply inline-flex w-full h-[50px] justify-between items-center text-base px-[30px] py-[50px] lg:px-20 lg:py-[50px];
@@ -301,9 +300,7 @@ h6 {
 }
 .course__card_delete__icon {
   @apply w-full h-[30px] flex justify-start;
-  
 }
-
 .course__card_delete__icon svg {
   @apply fill-[rgb(253,117,117)] hover:fill-[rgb(255,16,16)];
 }
@@ -407,9 +404,9 @@ h6 {
   @apply translate-x-[5px] duration-[0.5s];
 }
 .instructors {
+  @apply items-center;
   @apply flex bg-[#3577D1] gap-16 pl-5 px-0 py-20;
   flex-flow: column nowrap;
-  align-items: center;
 }
 .instructors__title__content {
   @apply flex items-center text-center gap-4;
@@ -434,27 +431,19 @@ h6 {
   @apply flex items-center w-[335px] h-[h-full] bg-white shrink-0 gap-4 rounded-[20px] hover:translate-y-[15px] hover:duration-[0.5s] hover:cursor-pointer;
   flex-flow: column nowrap;
 }
-
 .instructor__Card_delete__icon {
+  @apply relative z-[2] left-[3%] top-[3%];
   @apply w-full h-[30px] flex justify-start;
-  position: relative;
-  top: 3%;
-  left: 3%;
-  z-index: 2;
 }
-
-.instructor__Card_delete__icon svg {  
+.instructor__Card_delete__icon svg {
   @apply fill-[rgb(253,117,117)] hover:fill-[rgb(255,16,16)];
 }
-
 .instructor__Card__image__container {
   @apply w-full;
-  
 }
 .instructor__Card__image {
+  @apply relative top-[-15.5%];
   @apply w-full rounded-t-[20px];
-  position: relative;
-  top: -15.5%;
 }
 .instructor__Card__instructor__info {
   @apply flex items-center;
@@ -569,6 +558,7 @@ h6 {
 
 /* Adding forms */
 .instructors__add__instructor {
+  @apply text-[#06c];
   @apply text-xl w-[auto] text-[#06c] self-center mb-5 hover:text-white;
   @apply flex h-[50px] justify-center items-center gap-1.5 shadow-[0px_6px_14px_2px_rgba(0,102,204,0.25)] text-white not-italic font-semibold leading-[normal] px-[40px] py-3.5 rounded-[25px];
   background: linear-gradient(
@@ -577,7 +567,6 @@ h6 {
       rgba(247, 244, 244, 0.25) 100%
     ),
     linear-gradient(98deg, rgb(234, 238, 241) 11.06%, #e0edff 87.56%);
-    color: #06c;
 }
 .instructors__add__instructor:hover {
   background: linear-gradient(
@@ -589,50 +578,44 @@ h6 {
 }
 .courses__add__form__container,
 .instructors__add__form__container {
-  @apply fixed w-full h-full bg-[#0000008d] flex items-center justify-center left-0 top-[0%] z-[10]	;
+  @apply bg-[#000000b6] px-8 py-0;
+  @apply fixed w-full h-full bg-[#0000008d] flex items-center justify-center left-0 top-[0%] z-[10];
   flex-flow: column nowrap;
-  background-color: #000000b6;
-  padding: 0rem 2rem;
 }
-.update_add{
-  display: flex;
-  gap: 2rem;
+.update_add {
+  @apply flex gap-8;
 }
 .update_icon svg {
-  fill: #06c;
+  @apply fill-[#06c];
 }
-
-
-.update__icon svg,.update_add svg {
-  transition: 0.70s;
-  -webkit-transition: 0.70s;
-  -moz-transition: 0.70s;
-  -ms-transition: 0.70s;
-  -o-transition: 0.70s;
+.update__icon svg,
+.update_add svg {
+  @apply transition-[0.70s];
+  -webkit-transition: 0.7s;
+  -moz-transition: 0.7s;
+  -ms-transition: 0.7s;
+  -o-transition: 0.7s;
 }
-
-.update__icon > svg,.update_add> svg:hover {
-  cursor: pointer;
-  transition: 0.70s;
-  -webkit-transition: 0.70s;
-  -moz-transition: 0.70s;
-  -ms-transition: 0.70s;
-  -o-transition: 0.70s;
+.update__icon > svg,
+.update_add > svg:hover {
+  @apply cursor-pointer transition-[0.70s] rotate-180;
+  -webkit-transition: 0.7s;
+  -moz-transition: 0.7s;
+  -ms-transition: 0.7s;
+  -o-transition: 0.7s;
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
 }
-
 .courses__add__form__container__close,
 .instructors__add__form__container__close {
-  @apply hidden z-[10]	;
+  @apply hidden z-[10];
 }
 .courses__add__form__course,
 .instructors__add__form__course {
-  @apply  p-2.5 rounded-[5px] z-[10]	;
-  width: auto;
+  @apply w-auto;
+  @apply p-2.5 rounded-[5px] z-[10];
 }
 .courses__add__form__course::placeholder,
 .instructors__add__form__course::placeholder {
@@ -649,8 +632,8 @@ h6 {
 }
 .courses__add__form__button__container,
 .instructors__add__form__button__container {
+  @apply gap-[5px];
   @apply w-full h-[auto] flex justify-between items-start;
-  gap: 5px;
 }
 .instructors__add__form__button__container {
   @apply mt-10;
@@ -711,22 +694,15 @@ h6 {
   .instructor__card {
     @apply w-[calc(100%_-_5%)];
   }
-
   .courses__add__form__title,
   .instructors__add__form__title {
-    font-size: 1.3rem;
+    @apply text-[1.3rem];
   }
-
-  .courses__add__form, .instructors__add__form{
-    width: auto;
-    height: auto;
+  .courses__add__form,
+  .instructors__add__form {
+    @apply w-auto h-auto;
   }
-   
 }
-
-
-
-
 @media (min-width: 768px) {
   .burger {
     @apply hidden;

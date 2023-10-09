@@ -1,7 +1,10 @@
-
+// importing hooks and axios 
 
 import {React,useState,useEffect} from 'react'
 import axios from 'axios'
+
+// importing Instructor Card as well images
+
 import Instructor__Card from './Instructor__Card'
 import instructor__card1 from '../assets/instructor__card1.png' 
 import instructor__card2 from '../assets/Instructor__card2.png' 
@@ -9,6 +12,9 @@ import instructor__card3 from '../assets/Instructor__card3.png'
 import instructor__card4 from '../assets/Instructor__card4.png' 
 
 const Instructors = () => {
+
+  // defining instructor , setInstructor, newInstructor , setNewInstructor,toggleState and setToggleState  hooks.
+
   const [toggleState, setToggleState] = useState(0);
   const [instructors, setInstructors] = useState([]);
   const [newInstructors, setNewInstructors] = useState({
@@ -19,9 +25,14 @@ const Instructors = () => {
   });
 
 
+// defining useEffect for everyTime that application trigger an effect.
+
   useEffect(() => {
     getAllInstructors();
   }, []);
+
+
+  // this function handle changes whenever user type in the inputs of the form and shows on the screen also set values to the new course.
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -29,6 +40,7 @@ const Instructors = () => {
   };
 
 
+// this function toggle the closed form to open and also to be close.  
 
   const toggleTab = (index) => {
       setToggleState(index);
@@ -37,6 +49,7 @@ const Instructors = () => {
 
 
 
+// this function get all defined instructors from the db and turn them into json readable react format and set them to instructor cards.
   
     const getAllInstructors = async () => {
       const url = "http://localhost:8000/instructors/";
@@ -59,6 +72,8 @@ const Instructors = () => {
 
 
 
+
+// With this function user can add a instructor trough the form and press the add button to save the new instructor to the db.
 
   const addInstructor = async (e) => {
     e.preventDefault();
@@ -100,6 +115,10 @@ const Instructors = () => {
     });
   }
 
+
+
+  // this function delete a specific instructor from db by getting instructor id form which instructor card that button pressed  
+
   const deleteInstructor = async (instructor_id) => {
     const url = `http://localhost:8000/instructors/${instructor_id}`;
   
@@ -122,6 +141,10 @@ const Instructors = () => {
     }
   };
 
+
+
+ // with this function user can click on update button which refresh the added cards.  
+ 
   const updateCard = () => {
       getAllInstructors();
   }
