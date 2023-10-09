@@ -2,6 +2,9 @@ from tortoise.models import Model
 from tortoise import fields
 from tortoise.contrib.pydantic import pydantic_model_creator
 
+
+# defining db models
+
 class Course(Model):
     id = fields.IntField(pk=True)
     instructor = fields.CharField(max_length=30,nullable=False)
