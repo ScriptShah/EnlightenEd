@@ -39,4 +39,6 @@ Setting up the backEnd -----------------------------------------------
 
 - for fastApi docs go to " http://127.0.0.1:8000/docs " url.
 
+good luck and enjoy 😉
+
 
