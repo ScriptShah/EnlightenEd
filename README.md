@@ -17,7 +17,7 @@ How i can run this project :
 
 Setting up the frontEnd -----------------------------------------------
 
-1- fork or clone this repo on your machine.
+1- fork or clone this repo on your machine and then cd to the dir.
 
 2- open terminal and type " npm install " to install all dependencies.
 
