@@ -588,7 +588,7 @@ h6 {
 .update_icon svg {
   @apply fill-[#06c];
 }
-.update__icon.course svg,
+
 .update_add svg {
   @apply transition-[0.70s];
   -webkit-transition: 0.7s;
@@ -596,7 +596,27 @@ h6 {
   -ms-transition: 0.7s;
   -o-transition: 0.7s;
 }
-.update__icon.course > svg,
+
+#update__icon_course{
+  @apply transition-[0.70s];
+  -webkit-transition: 0.7s;
+  -moz-transition: 0.7s;
+  -ms-transition: 0.7s;
+  -o-transition: 0.7s;
+}
+
+#update__icon_course:hover{
+  @apply cursor-pointer transition-[0.70s] rotate-180;
+  -webkit-transition: 0.7s;
+  -moz-transition: 0.7s;
+  -ms-transition: 0.7s;
+  -o-transition: 0.7s;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+}
+
 .update_add > svg:hover {
   @apply cursor-pointer transition-[0.70s] rotate-180;
   -webkit-transition: 0.7s;
