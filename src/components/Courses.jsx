@@ -251,7 +251,7 @@ const Courses = () => {
                 
                 </>
               }
-              course__info = {course.title}
+              course__info = {course.course_title}
               course__rating__stars = {
                 <>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
