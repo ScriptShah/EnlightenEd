@@ -588,7 +588,7 @@ h6 {
 .update_icon svg {
   @apply fill-[#06c];
 }
-.update__icon svg,
+.update__icon.course svg,
 .update_add svg {
   @apply transition-[0.70s];
   -webkit-transition: 0.7s;
@@ -596,7 +596,7 @@ h6 {
   -ms-transition: 0.7s;
   -o-transition: 0.7s;
 }
-.update__icon > svg,
+.update__icon.course > svg,
 .update_add > svg:hover {
   @apply cursor-pointer transition-[0.70s] rotate-180;
   -webkit-transition: 0.7s;
