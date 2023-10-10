@@ -31,11 +31,11 @@ Setting up the backEnd -----------------------------------------------
 
 2- when installing is finished type " Scripts\activate.bat " to run the virtual environment.
 
-3- type " pip install uvicorn fastapi tortoise-orm " to install FastApi , tortoise-orm and uvicorn ASGI.
-
-4- type " pip install tortoise-orm[fastapi] " to install dependencies for fastapi and tortoise-orm.
+3- type " pip install to-requirements.txt" to install dependencies for backend server.
 
 5- finally type " uvicorn app:app --reload " to run the backend server and the fastApi, it will run on " http://127.0.0.1:8000 ".
+
+
 
 - for fastApi docs go to " http://127.0.0.1:8000/docs " url.
 
