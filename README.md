@@ -17,7 +17,7 @@ How i can run this project :
 
 Setting up the frontEnd -----------------------------------------------
 
-1- fork or clone this repo on your machine.
+1- fork or clone this repo on your machine and then cd to the dir.
 
 2- open terminal and type " npm install " to install all dependencies.
 
@@ -38,5 +38,7 @@ Setting up the backEnd -----------------------------------------------
 5- finally type " uvicorn app:app --reload " to run the backend server and the fastApi, it will run on " http://127.0.0.1:8000 ".
 
 - for fastApi docs go to " http://127.0.0.1:8000/docs " url.
+
+good luck and enjoy 😉
 
 
