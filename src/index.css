@@ -425,7 +425,7 @@ h6 {
   @apply text-sm text-[#ffffffcb] xl:text-base;
 }
 .instructors__cards__container {
-  @apply w-full flex overflow-x-scroll gap-4 pb-[60px] xl:justify-center xl:overflow-hidden;
+  @apply w-full flex overflow-x-scroll gap-4 pb-[60px] xl:justify-center xl:overflow-x-scroll;
 }
 .instructor__card {
   @apply flex items-center w-[335px] h-[h-full] bg-white shrink-0 gap-4 rounded-[20px] hover:translate-y-[15px] hover:duration-[0.5s] hover:cursor-pointer;
@@ -760,9 +760,9 @@ h6 {
     @apply overflow-x-hidden;
     flex-flow: row wrap;
   }
-  ::-webkit-scrollbar {
+  /* ::-webkit-scrollbar {
     @apply hidden;
-  }
+  } */
   .feedbacks__title__container {
     @apply flex justify-center items-center gap-8;
   }

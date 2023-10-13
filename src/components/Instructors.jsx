@@ -16,21 +16,13 @@ const Instructors = () => {
   // defining instructor , setInstructor, newInstructor , setNewInstructor,toggleState and setToggleState  hooks.
 
   const [toggleState, setToggleState] = useState(0);
-  const [instructors, setInstructors] = useState([]);
+  const [instructors, setInstructors] = useState([0]);
   const [newInstructors, setNewInstructors] = useState({
     name: "",
     position: "",
     followers: "",
     cursor: "",
   });
-
-
-// defining useEffect for everyTime that application trigger an effect.
-
-  useEffect(() => {
-    getAllInstructors();
-  }, []);
-
 
   // this function handle changes whenever user type in the inputs of the form and shows on the screen also set values to the new course.
 
@@ -147,8 +139,18 @@ const Instructors = () => {
  
   const updateCard = () => {
       getAllInstructors();
+      
   }
 
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      updateCard();
+    }, 3000);
+  
+    return () => clearInterval(interval);
+  }, []);
+  
 
   return (
     <section className="instructors" id='instructors'>

@@ -34,11 +34,6 @@ const Courses = () => {
   });
 
 
-// defining useEffect for everyTime that application trigger an effect.
-  useEffect(() => {
-    getAllCourses();
-  }, []);
-
 
   // this function handle changes whenever user type in the inputs of the form and shows on the screen also set values to the new course.
   const handleInputChange = (e) => {
@@ -151,6 +146,15 @@ const Courses = () => {
   const updateCard = () => {
     getAllCourses();
 }
+
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    updateCard();
+  }, 3000);
+
+  return () => clearInterval(interval);
+}, []);
 
 
   
@@ -276,8 +280,8 @@ const Courses = () => {
                 </>
               }
               course__rating__score = {"4.0"}
-              course__duration = {course.duration}
-              course__price = {course.price}
+              course__duration = {course.course_duration+" hrs"}
+              course__price = {course.price+" $"}
             />
           ))}
         </div>
