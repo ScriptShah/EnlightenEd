@@ -32,7 +32,7 @@ Setting up the backEnd -----------------------------------------------
 
 3- when installing is finished type " Scripts\activate.bat " to run the virtual environment.
 
-4- type " pip install to-requirements.txt" to install dependencies for backend server.
+4- type " pip install -r requirements.txt" to install dependencies for backend server.
 
 5- finally type " uvicorn app:app --reload " to run the backend server and the fastApi, it will run on " http://127.0.0.1:8000 ".
 
