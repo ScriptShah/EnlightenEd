@@ -151,7 +151,7 @@ const Courses = () => {
 useEffect(() => {
   const interval = setInterval(() => {
     updateCard();
-  }, 3000);
+  }, 5000);
 
   return () => clearInterval(interval);
 }, []);
