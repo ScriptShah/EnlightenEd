@@ -26,12 +26,13 @@ Setting up the frontEnd -----------------------------------------------
 
 Setting up the backEnd -----------------------------------------------
 
+1- need to install python from https://www.python.org/  (skip this if you already have python on your machine).
 
-1- open cmd and type " py -m venv env . " to install and setup python virtual environment on your project.
+2- open cmd and type " py -m venv env . " to install and setup python virtual environment on your project.
 
-2- when installing is finished type " Scripts\activate.bat " to run the virtual environment.
+3- when installing is finished type " Scripts\activate.bat " to run the virtual environment.
 
-3- type " pip install to-requirements.txt" to install dependencies for backend server.
+4- type " pip install to-requirements.txt" to install dependencies for backend server.
 
 5- finally type " uvicorn app:app --reload " to run the backend server and the fastApi, it will run on " http://127.0.0.1:8000 ".
 
