@@ -579,7 +579,7 @@ h6 {
 .courses__add__form__container,
 .instructors__add__form__container {
   @apply bg-[#000000b6] px-8 py-0;
-  @apply fixed w-full h-full bg-[#0000008d] flex items-center justify-center left-0 top-[0%] z-[10];
+  @apply fixed w-full h-full bg-[#0000008d]  flex items-center justify-center left-0 top-[0%] z-[10];
   flex-flow: column nowrap;
 }
 .update_add {
@@ -647,7 +647,7 @@ h6 {
 }
 .courses__add__form,
 .instructors__add__form {
-  @apply flex gap-4 w-[100%] h-[calc(100%_-_40%)] bg-[rgba(255,255,255,0.288)] p-[35px] rounded-[20px];
+  @apply flex gap-4 w-[100%] h-[calc(100%_-_35%)] bg-[rgba(255,255,255,0.288)] p-[35px] rounded-[20px];
   flex-flow: column;
 }
 .courses__add__form__button__container,
