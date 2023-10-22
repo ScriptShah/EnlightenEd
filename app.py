@@ -1,10 +1,15 @@
 # importing necessary modules 
 
+from typing import Annotated
+from fastapi import FastAPI, File, UploadFile
+from fastapi.responses import FileResponse
 from fastapi import FastAPI
 from tortoise.contrib.fastapi import  register_tortoise
 from models import (Course_Pydantic,CourseIn_Pydantic , Course)
 from models import (Instructor_Pydantic,InstructorIn_Pydantic, Instructor)
 from fastapi.middleware.cors import CORSMiddleware
+import os
+import shutil
 
 app = FastAPI()
 
@@ -33,6 +38,8 @@ app.add_middleware(
 @app.get('/')
 def index():
     return "go to /docs for the api documentation"
+
+
 
 
 
@@ -140,6 +147,42 @@ async def update_instructor(instructor_id: int, update_info: InstructorIn_Pydant
 async def delete_course(instructor_id: int):
     await Instructor.filter(id=instructor_id).delete()
     return {"status": "ok"}
+
+
+
+@app.post("/image/{image_id}")
+async def upload_image(image_id: str, file: UploadFile = File(...)):
+    # Create the images directory if it doesn't already exist
+    if not os.path.exists("../images"):
+        os.mkdir("../images")
+
+    # Save the uploaded file to disk with the specified ID
+    file_extension = os.path.splitext(file.filename)[1]
+    file_path = f"../images/{image_id}{file_extension}"
+    with open(file_path, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+
+    return {"message": "Image uploaded successfully"}
+
+@app.get('/get_image/{image_id}')
+async def get_image(image_id: str):
+    # Return the stored image with the specified ID
+    file_path = f"../images/{image_id}.png"
+    if os.path.exists(file_path):
+        return FileResponse(file_path)
+    else:
+        return {"error": "Image not found"}
+
+@app.delete('/delete_image/{image_id}')
+async def delete_image(image_id: str):
+    # Delete the stored image with the specified ID
+    file_path = f"../images/{image_id}.png"
+    if os.path.exists(file_path):
+        os.remove(file_path)
+        return {"message": "Image deleted successfully"}
+    else:
+        return {"error": "Image not found"}
+
 
 
 

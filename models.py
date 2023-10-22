@@ -28,3 +28,6 @@ CourseIn_Pydantic = pydantic_model_creator(Course, name="CourseIn", exclude_read
 
 Instructor_Pydantic = pydantic_model_creator(Instructor, name="Instructor")
 InstructorIn_Pydantic = pydantic_model_creator(Instructor, name="InstructorIn", exclude_readonly=True)
+
+
+
