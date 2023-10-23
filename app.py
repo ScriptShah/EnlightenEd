@@ -149,16 +149,15 @@ async def delete_course(instructor_id: int):
     return {"status": "ok"}
 
 
-
 @app.post("/image/{image_id}")
 async def upload_image(image_id: str, file: UploadFile = File(...)):
     # Create the images directory if it doesn't already exist
-    if not os.path.exists("../images"):
-        os.mkdir("../images")
+    if not os.path.exists("images"):
+        os.mkdir("images")
 
     # Save the uploaded file to disk with the specified ID
     file_extension = os.path.splitext(file.filename)[1]
-    file_path = f"../images/{image_id}{file_extension}"
+    file_path = f"images/{image_id}{file_extension}"
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
@@ -167,7 +166,7 @@ async def upload_image(image_id: str, file: UploadFile = File(...)):
 @app.get('/get_image/{image_id}')
 async def get_image(image_id: str):
     # Return the stored image with the specified ID
-    file_path = f"../images/{image_id}.png"
+    file_path = f"images/{image_id}.png"
     if os.path.exists(file_path):
         return FileResponse(file_path)
     else:
@@ -176,13 +175,12 @@ async def get_image(image_id: str):
 @app.delete('/delete_image/{image_id}')
 async def delete_image(image_id: str):
     # Delete the stored image with the specified ID
-    file_path = f"../images/{image_id}.png"
+    file_path = f"images/{image_id}.png"
     if os.path.exists(file_path):
         os.remove(file_path)
         return {"message": "Image deleted successfully"}
     else:
         return {"error": "Image not found"}
-
 
 
 

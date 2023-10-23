@@ -17,6 +17,7 @@ const Instructors = () => {
 
   const [toggleState, setToggleState] = useState(0);
   const [instructors, setInstructors] = useState([0]);
+  const [selectedFile, setSelectedFile] = useState(null);
   const [newInstructors, setNewInstructors] = useState({
     name: "",
     position: "",
@@ -152,6 +153,38 @@ const Instructors = () => {
   }, []);
   
 
+  
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
+  
+  let file = "imageFile";
+  
+  const handleUpload = async (fileName, event) => {
+    event.preventDefault();
+  
+    if (!selectedFile) {
+      return;
+    }
+  
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+  
+    try {
+      const response = await axios.post(`http://localhost:8000/image/${fileName}`, formData);
+      console.log(response.data); // You can handle the response here
+  
+      // Clear the selected file
+      setSelectedFile(null);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
+
+
+
   return (
     <section className="instructors" id='instructors'>
 
@@ -189,7 +222,9 @@ const Instructors = () => {
             <input type="text" name='followers' value={newInstructors.followers} onChange={handleInputChange} placeholder="Instructor Followers"  className='instructors__add__form__course duration'/>
             <input type="text" name='cursor' value={newInstructors.cursor} onChange={handleInputChange} placeholder="Instructor Courser" className='instructors__add__form__course price' />
             <div className="instructors__add__form__button__container">
-              <button type="button" className='instructors__add__form__button add' onClick={addInstructor} >Save</button>
+              <button type="submit" className='instructors__add__form__button add' onClick={addInstructor} >Save</button>
+              <input type="file" onChange={handleFileChange} />
+              <button type="buttom" className='instructors__add__form__button add'onClick={(event) => handleUpload(file, event)} >Upload</button>
               <button type="button" className='instructors__add__form__button close' onClick={() => toggleTab(0)} >close</button>
             </div>
           </form>
