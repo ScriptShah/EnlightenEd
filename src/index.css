@@ -704,6 +704,30 @@ h6 {
     linear-gradient(98deg, rgb(20, 134, 248) 11.06%, #227eff 87.56%);
 }
 
+.course_file_input_container {
+  display: flex;
+  width: 15rem;
+  gap: 10px;
+}
+
+.course_file_input {
+  color: #06c;
+  background-color: #e0edff;
+  border-radius: 20px;
+  white-space: nowrap;
+  width: 150px;
+  padding: 10px;
+  font-size: large;
+  font-weight: 600;
+}
+
+.course_file_input:hover {
+  cursor: pointer;
+  color: #124fa2;
+}
+
+
+
 /* breakpoints */
 @media (max-width: 500px) {
   .home__image__small {

@@ -214,7 +214,7 @@ const Instructors = () => {
     setSelectedFile(event.target.files[0]);
   };
   
-  let file = "imageFile";
+  let file = "instructor-id";
   
   const handleUpload = async (fileName, event) => {
     event.preventDefault();

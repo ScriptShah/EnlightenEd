@@ -26,6 +26,8 @@ const Courses = () => {
   const [toggleState, setToggleState] = useState(0);
   const [toggleStateTwo, setToggleStateTwo] = useState(0);
   const [courses, setCourses] = useState([]);
+  const [courseImage, setCourseImage] = useState(null);
+  const [instructorImage, setInstructorImage] = useState(null);
   const [newCourse, setNewCourse] = useState({
     course_title: "",
     instructor: "",
@@ -152,6 +154,42 @@ const Courses = () => {
 }
 
 
+
+const handleCourseImage = (event) => {
+  setCourseImage(event.target.files[0]);
+};
+
+const handleInstructorImage = (event) => {
+  setInstructorImage(event.target.files[1]);
+};
+
+let courseImageId = "course-id";
+let instructorImageId = "course-instructor-id";
+
+const handleUpload = async (image1,image2, event) => {
+  event.preventDefault();
+
+  if (!courseImage && instructorImage) {
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("file", courseImage,"file2",instructorImage);
+
+  try {
+    const response1 = await axios.post(`http://localhost:8000/image/${image1}`, formData);
+    const response2 = await axios.post(`http://localhost:8000/image/${image2}`, formData);
+    console.log(response1.data); // You can handle the response here
+    console.log(response2.data); // You can handle the response here
+
+    // Clear the selected file
+    setCourseImage(null);
+    setInstructorImage(null);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 useEffect(() => {
   const interval = setInterval(() => {
     updateCard();
@@ -229,6 +267,13 @@ useEffect(() => {
             <input type="text" name="price" value={newCourse.price} onChange={handleInputChange} placeholder="price" className='courses__add__form__course price' />
             <div className="courses__add__form__button__container">
               <button type="button" className='courses__add__form__button add' onClick={addCourse} >Save</button>
+              <div className="course_file_input_container">
+                <label htmlFor="files" className="course_file_input">Course Image</label>
+                <input id="files" style={{visibility:'hidden'}} type="file" onChange={handleCourseImage}></input>
+                <label htmlFor="files" className="course_file_input">Instructor Image</label>
+                <input id="files" style={{visibility:'hidden'}} type="file" onChange={handleInstructorImage}></input>
+              </div>  
+              <button type="button" className='instructors__add__form__button add'onClick={(event) => handleUpload(courseImageId,instructorImageId, event)} >Upload</button>
               <button type="button" className='courses__add__form__button close' onClick={() => toggleTab(0)} >close</button>
             </div>
           </form>
@@ -244,6 +289,13 @@ useEffect(() => {
             <input type="text" name="price" value={newCourse.price} onChange={handleInputChange} placeholder="price" className='courses__add__form__course price' />
             <div className="courses__add__form__button__container">
               <button type="button" className='courses__add__form__button add' onClick={addCourse} >update</button>
+              <div className="course_file_input_container">
+                <label htmlFor="files" className="course_file_input">Course Image</label>
+                <input id="files" style={{visibility:'hidden'}} type="file" onChange={handleCourseImage}></input>
+                <label htmlFor="files" className="course_file_input">Instructor Image</label>
+                <input id="files" style={{visibility:'hidden'}} type="file" onChange={handleInstructorImage}></input>
+              </div>  
+              <button type="button" className='instructors__add__form__button add'onClick={(event) => handleUpload(courseImageId,instructorImageId, event)} >Upload</button>
               <button type="button" className='courses__add__form__button close' onClick={() => toggleTabTwo(0)} >close</button>
             </div>
           </form>
