@@ -298,11 +298,31 @@ h6 {
     ),
     linear-gradient(98deg, rgb(20, 134, 248) 11.06%, #227eff 87.56%);
 }
-.course__card_delete__icon {
-  @apply w-full h-[30px] flex justify-start;
+
+.course__card__icons_container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
 }
-.course__card_delete__icon svg {
+
+.course__card_delete__icon  {
+  @apply  h-[30px] flex justify-start;
+}
+.course__card_delete__icon svg  {
   @apply fill-[rgb(253,117,117)] hover:fill-[rgb(255,16,16)];
+}
+
+
+
+.course__card__edit__icon  svg {
+  height: 30px;
+  fill: #06c;
+
+}
+.course__card__edit__icon  svg:hover {
+  fill:#124fa2;
 }
 .course__cards__container {
   @apply flex w-full gap-8 overflow-x-scroll overflow-y-hidden scroll-smooth pl-8 pb-[30px] xl:justify-center xl:gap-6;
@@ -431,18 +451,48 @@ h6 {
   @apply flex items-center w-[335px] h-[h-full] bg-white shrink-0 gap-4 rounded-[20px] hover:translate-y-[15px] hover:duration-[0.5s] hover:cursor-pointer;
   flex-flow: column nowrap;
 }
+
+.instructor__card__icons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 0px 0px 15px;
+  margin-top: 10px;
+}
+
 .instructor__Card_delete__icon {
-  @apply relative z-[2] left-[3%] top-[3%];
-  @apply w-full h-[30px] flex justify-start;
+  @apply  z-[2];
+  @apply h-[30px] flex justify-start;
 }
 .instructor__Card_delete__icon svg {
   @apply fill-[rgb(253,117,117)] hover:fill-[rgb(255,16,16)];
 }
+
+
+.instructor__card__edit__icon{
+  z-index: 9;
+}
+.instructor__card__edit__icon svg{
+  z-index: 9;
+  height: 30px;
+  fill: #06c;
+}
+
+.instructor__card__edit__icon svg:hover{
+  position: absolute;
+  right: 0;
+  z-index: 19;
+  height: 30px;
+  fill: #124fa2;
+}
+
+
+
 .instructor__Card__image__container {
   @apply w-full;
 }
 .instructor__Card__image {
-  @apply relative top-[-15.5%];
+  @apply relative top-[-18.5%];
   @apply w-full rounded-t-[20px];
 }
 .instructor__Card__instructor__info {
@@ -577,66 +627,31 @@ h6 {
     linear-gradient(98deg, rgb(20, 134, 248) 11.06%, #227eff 87.56%);
 }
 .courses__add__form__container,
-.instructors__add__form__container {
+.instructors__add__form__container ,
+.instructors__edit__form__container {
   @apply bg-[#000000b6] px-8 py-0;
   @apply fixed w-full h-full bg-[#0000008d]  flex items-center justify-center left-0 top-[0%] z-[10];
   flex-flow: column nowrap;
 }
-.update_add {
-  @apply flex gap-8;
-}
-.update_icon svg {
-  @apply fill-[#06c];
-}
 
-.update_add svg {
-  @apply transition-[0.70s];
-  -webkit-transition: 0.7s;
-  -moz-transition: 0.7s;
-  -ms-transition: 0.7s;
-  -o-transition: 0.7s;
-}
 
-#update__icon_course{
-  @apply transition-[0.70s];
-  -webkit-transition: 0.7s;
-  -moz-transition: 0.7s;
-  -ms-transition: 0.7s;
-  -o-transition: 0.7s;
-}
 
-#update__icon_course:hover{
-  @apply cursor-pointer transition-[0.70s] rotate-180;
-  -webkit-transition: 0.7s;
-  -moz-transition: 0.7s;
-  -ms-transition: 0.7s;
-  -o-transition: 0.7s;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-}
 
-.update_add > svg:hover {
-  @apply cursor-pointer transition-[0.70s] rotate-180;
-  -webkit-transition: 0.7s;
-  -moz-transition: 0.7s;
-  -ms-transition: 0.7s;
-  -o-transition: 0.7s;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-}
+
 .courses__add__form__container__close,
-.instructors__add__form__container__close {
+.instructors__add__form__container__close,
+.instructors__edit__form__container__close {
   @apply hidden z-[10];
 }
+
 .courses__add__form__course,
-.instructors__add__form__course {
+.instructors__add__form__course,
+.instructors__edit__form__container  {
   @apply w-auto;
   @apply p-2.5 rounded-[5px] z-[10];
 }
+
+
 .courses__add__form__course::placeholder,
 .instructors__add__form__course::placeholder {
   @apply pl-2.5;
@@ -646,7 +661,8 @@ h6 {
   @apply text-[2rem] text-white;
 }
 .courses__add__form,
-.instructors__add__form {
+.instructors__add__form ,
+.instructors__edit__form{
   @apply flex gap-4 w-[100%] h-[calc(100%_-_35%)] bg-[rgba(255,255,255,0.288)] p-[35px] rounded-[20px];
   flex-flow: column;
 }
