@@ -160,7 +160,7 @@ const handleCourseImage = (event) => {
 };
 
 const handleInstructorImage = (event) => {
-  setInstructorImage(event.target.files[1]);
+  setInstructorImage(event.target.files[2]);
 };
 
 let courseImageId = "course-id";
@@ -174,11 +174,13 @@ const handleUpload = async (image1,image2, event) => {
   }
 
   const formData = new FormData();
-  formData.append("file", courseImage,"file2",instructorImage);
+  const formData2 = new FormData();
+  formData.append("file", courseImage);
+  formData2.append("file2",instructorImage);
 
   try {
     const response1 = await axios.post(`http://localhost:8000/image/${image1}`, formData);
-    const response2 = await axios.post(`http://localhost:8000/image/${image2}`, formData);
+    const response2 = await axios.post(`http://localhost:8000/image/${image2}`, formData2);
     console.log(response1.data); // You can handle the response here
     console.log(response2.data); // You can handle the response here
 
@@ -193,7 +195,7 @@ const handleUpload = async (image1,image2, event) => {
 useEffect(() => {
   const interval = setInterval(() => {
     updateCard();
-  }, 5000);
+  }, 1000);
 
   return () => clearInterval(interval);
 }, []);

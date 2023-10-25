@@ -203,7 +203,7 @@ const Instructors = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       updateCard();
-    }, 5000);
+    }, 1000);
   
     return () => clearInterval(interval);
   }, []);
